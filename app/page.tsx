@@ -360,7 +360,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             {/* Donate Card */}
             <Card className="p-8 hover:shadow-lg transition-all duration-300 transform hover:scale-102 hover:-translate-y-1 bg-gradient-to-br from-white to-gray-50 border border-gray-100 hover:border-red-200 group cursor-pointer">
-              <div className="flex items-center gap-3 mb-4 transition-all duration-300">
+              <div className="flex items-center gap-3 mb-4 transition-all duration-300 justify-center">
                 <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:bg-red-600">
                   <Heart className="w-6 h-6 text-red-600 transition-colors duration-300 group-hover:text-white" />
                 </div>
@@ -368,7 +368,7 @@ export default function Home() {
                   Make a Donation
                 </h4>
               </div>
-              <p className="text-gray-600 mb-6 transition-colors duration-300 group-hover:text-gray-900">
+              <p className="text-gray-600 mb-6 transition-colors duration-300 group-hover:text-gray-900 text-center">
                 Direct impact on lives. Your donation directly funds the
                 collection, sorting, and delivery of essential medical supplies
                 to ostomates across Africa.
@@ -380,7 +380,7 @@ export default function Home() {
 
             {/* Volunteer Card */}
             <Card className="p-8 hover:shadow-lg transition-all duration-300 transform hover:scale-102 hover:-translate-y-1 bg-gradient-to-br from-white to-gray-50 border border-gray-100 hover:border-red-200 group cursor-pointer">
-              <div className="flex items-center gap-3 mb-4 transition-all duration-300">
+              <div className="flex items-center gap-3 mb-4 transition-all duration-300 justify-center">
                 <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:bg-red-600">
                   <Users className="w-6 h-6 text-red-600 transition-colors duration-300 group-hover:text-white" />
                 </div>
@@ -388,7 +388,7 @@ export default function Home() {
                   Volunteer
                 </h4>
               </div>
-              <p className="text-gray-600 mb-6 transition-colors duration-300 group-hover:text-gray-900">
+              <p className="text-gray-600 mb-6 transition-colors duration-300 group-hover:text-gray-900 text-center">
                 Join our passionate team. Help collect, sort, and pack supplies
                 for distribution. No experience necessary—just compassion.
               </p>
@@ -424,13 +424,13 @@ export default function Home() {
                 key={idx}
                 className="p-6 bg-gradient-to-br from-red-50 to-red-100 border-l-4 border-red-600 hover:shadow-lg transition-all duration-300 transform hover:scale-102 hover:-translate-y-1 group cursor-pointer"
               >
-                <p className="text-2xl mb-2 transition-transform duration-300">
+                <p className="text-2xl mb-2 transition-transform duration-300 text-center">
                   {info.icon}
                 </p>
-                <p className="text-sm text-gray-600 mb-2 transition-colors duration-300 group-hover:text-gray-900">
+                <p className="text-sm text-gray-600 mb-2 transition-colors duration-300 group-hover:text-gray-900 text-center">
                   {info.title}
                 </p>
-                <p className="text-gray-900 font-semibold transition-colors duration-300 group-hover:text-red-700">
+                <p className="text-gray-900 font-semibold transition-colors duration-300 group-hover:text-red-700 text-center">
                   {info.desc}
                 </p>
               </Card>
@@ -474,7 +474,7 @@ export default function Home() {
                   key={idx}
                   className="p-8 text-center hover:shadow-lg transition-all duration-300 transform hover:scale-102 hover:-translate-y-1 bg-gradient-to-br from-white to-gray-50 border border-gray-100 hover:border-red-200 group cursor-pointer"
                 >
-                  <div className="transition-all duration-300 inline-block mb-4">
+                  <div className="transition-all duration-300 inline-block mb-4 flex justify-center w-full">
                     <Icon className="w-8 h-8 text-red-600 transition-colors duration-300 group-hover:text-red-700" />
                   </div>
                   <h4 className="text-lg font-bold text-gray-900 mb-2 transition-colors duration-300 group-hover:text-red-600">
