@@ -1,52 +1,13 @@
-$ next dev
+
+> footprints-2-africa@0.1.0 dev
+> next dev
+
+⚠ Port 3000 is in use by an unknown process, using available port 3001 instead.
 ▲ Next.js 16.1.6 (Turbopack)
-- Local:         http://localhost:3000
-- Network:       http://169.254.0.21:3000
+- Local:         http://localhost:3001
+- Network:       http://169.254.0.21:3001
 
 ✓ Starting...
-✓ Ready in 1177ms
-○ Compiling / ...
-⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
- GET / 200 in 3.8s (compile: 3.5s, render: 309ms)
-⚠ Cross origin request detected from footprints-2-africa-2.lindy.site to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
-Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
- GET / 200 in 120ms (compile: 8ms, render: 113ms)
-✓ Compiled in 253ms
-⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
-⨯ ReferenceError: color is not defined
-    at <unknown> (app/page.tsx:188:107)
-    at Array.map (<anonymous>)
-    at Home (app/page.tsx:182:15)
-  186 |                 style={{ animationDelay: `${idx * 100}ms` }}
-  187 |               >
-> 188 |                 <item.icon className={`w-12 h-12 mb-4 transition-all duration-300 group-hover:scale-125 ${color === "red" ? "text-red-600" : "text-orange-600"}`} />
-      |                                                                                                           ^
-  189 |                 <h3 className="text-2xl font-bold text-gray-900 mb-3 transition-all duration-300 group-hover:text-red-600">
-  190 |                   {item.title}
-  191 |                 </h3> {
-  digest: '314013385'
-}
- GET / 500 in 241ms (compile: 66ms, render: 175ms)
-✓ Compiled in 140ms
-⚠ Fast Refresh had to perform a full reload due to a runtime error.
-⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
- GET / 200 in 219ms (compile: 58ms, render: 161ms)
-⚠ Fast Refresh had to perform a full reload due to a runtime error.
- GET / 200 in 96ms (compile: 5ms, render: 91ms)
-✓ Compiled in 113ms
-⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
- GET / 200 in 244ms (compile: 61ms, render: 183ms)
- GET / 200 in 89ms (compile: 6ms, render: 82ms)
-✓ Compiled in 264ms
-⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
- GET / 200 in 271ms (compile: 69ms, render: 201ms)
- GET / 200 in 116ms (compile: 7ms, render: 108ms)
-✓ Compiled in 298ms
-⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
- GET / 200 in 213ms (compile: 119ms, render: 94ms)
- GET / 200 in 28ms (compile: 4ms, render: 24ms)
- GET / 200 in 37ms (compile: 5ms, render: 32ms)
- GET / 200 in 217ms (compile: 3ms, render: 213ms)
- GET / 200 in 110ms (compile: 6ms, render: 104ms)
- GET / 200 in 407ms (compile: 58ms, render: 349ms)
-✓ Compiled in 118ms
+⨯ Unable to acquire lock at /home/code/footprints-2-africa/.next/dev/lock, is another instance of next dev running?
+  Suggestion: If you intended to restart next dev, terminate the other process, and then try again.
+[?25h
