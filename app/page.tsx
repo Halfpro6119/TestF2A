@@ -19,15 +19,15 @@ import {
 
 /**
  * Home Page Component
- * Premium charity website with interactive elements and smooth animations
- * Features: animated hero, interactive cards, smooth scrolling, micro-interactions
+ * Premium charity website with refined, subtle animations
+ * Features: smooth transitions, elegant hover states, professional micro-interactions
  */
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
-  // Track scroll position for parallax effects
+  // Track scroll position for subtle parallax effects
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", handleScroll);
@@ -36,18 +36,18 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white overflow-hidden">
-      {/* Navigation Bar - Premium fixed header with smooth interactions */}
+      {/* Navigation Bar - Premium fixed header with refined transitions */}
       <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-gray-100 shadow-sm transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-          {/* Logo with hover animation */}
-          <div className="flex items-center gap-3 group cursor-pointer transition-all duration-300 hover:scale-105">
-            <div className="relative w-12 h-12 transition-transform duration-300 group-hover:rotate-12">
+          {/* Logo with subtle hover effect */}
+          <div className="flex items-center gap-3 group cursor-pointer transition-all duration-300 hover:opacity-80">
+            <div className="relative w-12 h-12 transition-transform duration-300">
               <Image
                 src="/logo.png"
                 alt="Footprints 2 Africa Logo"
                 width={48}
                 height={48}
-                className="transition-all duration-300 group-hover:scale-110"
+                className="transition-all duration-300"
               />
             </div>
             <div className="transition-all duration-300">
@@ -60,24 +60,24 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Desktop Navigation Menu with animated underlines */}
+          {/* Desktop Navigation Menu with refined underlines */}
           <div className="hidden md:flex items-center gap-8">
             {["Home", "About", "Impact", "Get Involved", "Contact"].map(
               (item, idx) => (
                 <a
                   key={idx}
                   href={`#${item.toLowerCase().replace(" ", "-")}`}
-                  className="text-gray-700 hover:text-red-600 transition-all duration-300 font-medium text-sm relative group"
+                  className="text-gray-700 hover:text-red-600 transition-colors duration-300 font-medium text-sm relative group"
                 >
                   {item}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-red-600 to-red-400 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
                 </a>
               )
             )}
           </div>
 
-          {/* Donate Button with premium hover effect */}
-          <Button className="hidden sm:flex bg-red-600 hover:bg-red-700 text-white transition-all duration-300 hover:shadow-lg hover:shadow-red-600/50 transform hover:scale-105">
+          {/* Donate Button with refined hover effect */}
+          <Button className="hidden sm:flex bg-red-600 hover:bg-red-700 text-white transition-all duration-300 hover:shadow-lg transform hover:scale-102">
             Donate
           </Button>
 
@@ -118,14 +118,14 @@ export default function Home() {
         )}
       </nav>
 
-      {/* Hero Section - Premium with parallax effect */}
+      {/* Hero Section - Premium with subtle animations */}
       <section
         id="home"
         className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white via-gray-50 to-white relative overflow-hidden"
       >
-        {/* Animated background elements */}
-        <div className="absolute top-20 right-10 w-72 h-72 bg-red-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-0 left-10 w-72 h-72 bg-red-50 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse delay-2000"></div>
+        {/* Subtle animated background elements */}
+        <div className="absolute top-20 right-10 w-72 h-72 bg-red-100 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
+        <div className="absolute bottom-0 left-10 w-72 h-72 bg-red-50 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse delay-2000"></div>
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           {/* Animated headline */}
@@ -142,14 +142,14 @@ export default function Home() {
             urgently need them across Africa. One precious bag at a time.
           </p>
 
-          {/* CTA Buttons with premium hover effects */}
+          {/* CTA Buttons with refined hover effects */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
-            <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-6 text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-red-600/50 transform hover:scale-105 active:scale-95">
+            <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-6 text-lg transition-all duration-300 hover:shadow-lg transform hover:scale-102 active:scale-98">
               Donate Now <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button
               variant="outline"
-              className="px-8 py-6 text-lg border-gray-300 hover:bg-gray-50 transition-all duration-300 hover:border-red-600 hover:text-red-600 transform hover:scale-105 active:scale-95"
+              className="px-8 py-6 text-lg border-gray-300 hover:bg-gray-50 transition-all duration-300 hover:border-red-600 hover:text-red-600 transform hover:scale-102 active:scale-98"
             >
               How We Help
             </Button>
@@ -157,11 +157,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Impact Metrics Section - Interactive cards with hover animations */}
+      {/* Impact Metrics Section - Refined card interactions */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Metric Cards with premium hover effects */}
+            {/* Metric Cards with subtle hover effects */}
             {[
               { value: "31,752", label: "Supplies Delivered", icon: "📦" },
               { value: "921.5kg", label: "Saved from Landfill", icon: "♻️" },
@@ -170,11 +170,11 @@ export default function Home() {
             ].map((metric, idx) => (
               <Card
                 key={idx}
-                className="p-6 text-center hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 cursor-pointer group bg-gradient-to-br from-white to-gray-50 border border-gray-100 hover:border-red-200"
+                className="p-6 text-center hover:shadow-lg transition-all duration-300 transform hover:scale-102 hover:-translate-y-1 cursor-pointer group bg-gradient-to-br from-white to-gray-50 border border-gray-100 hover:border-red-200"
                 onMouseEnter={() => setHoveredCard(idx)}
                 onMouseLeave={() => setHoveredCard(null)}
               >
-                <div className="text-4xl mb-3 transition-transform duration-300 group-hover:scale-125">
+                <div className="text-4xl mb-3 transition-transform duration-300">
                   {metric.icon}
                 </div>
                 <p className="text-4xl font-bold bg-gradient-to-r from-red-600 to-red-400 bg-clip-text text-transparent mb-2 transition-all duration-300">
@@ -184,7 +184,7 @@ export default function Home() {
                   {metric.label}
                 </p>
                 {hoveredCard === idx && (
-                  <div className="mt-4 h-1 bg-gradient-to-r from-red-600 to-red-400 rounded-full animate-in fade-in duration-300"></div>
+                  <div className="mt-4 h-0.5 bg-gradient-to-r from-red-600 to-red-400 rounded-full animate-in fade-in duration-300"></div>
                 )}
               </Card>
             ))}
@@ -192,7 +192,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section - Premium cards with smooth interactions */}
+      {/* About Section - Premium cards with refined interactions */}
       <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <h3 className="text-4xl font-bold text-gray-900 mb-12 text-center animate-in fade-in duration-700">
@@ -201,8 +201,8 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 gap-12">
             {/* Purpose Card */}
-            <Card className="p-8 hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border border-gray-100 hover:border-red-200 group cursor-pointer">
-              <div className="text-4xl mb-4 transition-transform duration-300 group-hover:scale-125">
+            <Card className="p-8 hover:shadow-lg transition-all duration-300 transform hover:scale-102 hover:-translate-y-1 bg-gradient-to-br from-white to-gray-50 border border-gray-100 hover:border-red-200 group cursor-pointer">
+              <div className="text-4xl mb-4 transition-transform duration-300">
                 🎯
               </div>
               <h4 className="text-2xl font-bold text-gray-900 mb-4 transition-colors duration-300 group-hover:text-red-600">
@@ -216,8 +216,8 @@ export default function Home() {
             </Card>
 
             {/* Vision Card */}
-            <Card className="p-8 hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border border-gray-100 hover:border-red-200 group cursor-pointer">
-              <div className="text-4xl mb-4 transition-transform duration-300 group-hover:scale-125">
+            <Card className="p-8 hover:shadow-lg transition-all duration-300 transform hover:scale-102 hover:-translate-y-1 bg-gradient-to-br from-white to-gray-50 border border-gray-100 hover:border-red-200 group cursor-pointer">
+              <div className="text-4xl mb-4 transition-transform duration-300">
                 ✨
               </div>
               <h4 className="text-2xl font-bold text-gray-900 mb-4 transition-colors duration-300 group-hover:text-red-600">
@@ -232,7 +232,7 @@ export default function Home() {
           </div>
 
           {/* Why It Matters - Premium card with accent */}
-          <Card className="p-8 mt-8 bg-gradient-to-r from-red-50 to-red-100 border-l-4 border-red-600 hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 group cursor-pointer">
+          <Card className="p-8 mt-8 bg-gradient-to-r from-red-50 to-red-100 border-l-4 border-red-600 hover:shadow-lg transition-all duration-300 transform hover:scale-102 hover:-translate-y-1 group cursor-pointer">
             <h4 className="text-2xl font-bold text-gray-900 mb-4 transition-colors duration-300 group-hover:text-red-700">
               Why It Matters
             </h4>
@@ -245,7 +245,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Impact Stories Section - Interactive story cards */}
+      {/* Impact Stories Section - Refined story cards */}
       <section id="impact" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
           <h3 className="text-4xl font-bold text-gray-900 mb-12 text-center animate-in fade-in duration-700">
@@ -253,7 +253,7 @@ export default function Home() {
           </h3>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Story Cards with premium interactions */}
+            {/* Story Cards with refined interactions */}
             {[
               {
                 name: "Dickson's Story",
@@ -273,10 +273,10 @@ export default function Home() {
             ].map((story, idx) => (
               <Card
                 key={idx}
-                className="p-8 hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border border-gray-100 hover:border-red-200 group cursor-pointer"
+                className="p-8 hover:shadow-lg transition-all duration-300 transform hover:scale-102 hover:-translate-y-1 bg-gradient-to-br from-white to-gray-50 border border-gray-100 hover:border-red-200 group cursor-pointer"
               >
                 <div className="flex items-center gap-2 mb-4 transition-all duration-300">
-                  <Heart className="w-5 h-5 text-red-600 transition-transform duration-300 group-hover:scale-125 group-hover:animate-pulse" />
+                  <Heart className="w-5 h-5 text-red-600 transition-transform duration-300" />
                   <h4 className="text-xl font-bold text-gray-900 transition-colors duration-300 group-hover:text-red-600">
                     {story.name}
                   </h4>
@@ -286,7 +286,7 @@ export default function Home() {
                 </p>
                 <Button
                   variant="link"
-                  className="text-red-600 hover:text-red-700 p-0 transition-all duration-300 group-hover:translate-x-2"
+                  className="text-red-600 hover:text-red-700 p-0 transition-all duration-300 group-hover:translate-x-1"
                 >
                   Read Full Story →
                 </Button>
@@ -296,7 +296,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How It Works Section - Interactive process steps */}
+      {/* How It Works Section - Refined process steps */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <h3 className="text-4xl font-bold text-gray-900 mb-12 text-center animate-in fade-in duration-700">
@@ -304,7 +304,7 @@ export default function Home() {
           </h3>
 
           <div className="grid md:grid-cols-4 gap-6">
-            {/* Process Steps with hover animations */}
+            {/* Process Steps with refined animations */}
             {[
               {
                 num: 1,
@@ -331,7 +331,7 @@ export default function Home() {
                 key={idx}
                 className="text-center group cursor-pointer transition-all duration-300"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-400 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 transition-all duration-300 group-hover:scale-125 group-hover:shadow-lg group-hover:shadow-red-600/50 transform group-hover:-translate-y-2">
+                <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-400 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 transition-all duration-300 group-hover:shadow-lg transform group-hover:scale-110 group-hover:-translate-y-1">
                   {step.num}
                 </div>
                 <h4 className="text-lg font-bold text-gray-900 mb-2 transition-colors duration-300 group-hover:text-red-600">
@@ -359,9 +359,9 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             {/* Donate Card */}
-            <Card className="p-8 hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border border-gray-100 hover:border-red-200 group cursor-pointer">
+            <Card className="p-8 hover:shadow-lg transition-all duration-300 transform hover:scale-102 hover:-translate-y-1 bg-gradient-to-br from-white to-gray-50 border border-gray-100 hover:border-red-200 group cursor-pointer">
               <div className="flex items-center gap-3 mb-4 transition-all duration-300">
-                <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:bg-red-600 group-hover:scale-125">
+                <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:bg-red-600">
                   <Heart className="w-6 h-6 text-red-600 transition-colors duration-300 group-hover:text-white" />
                 </div>
                 <h4 className="text-2xl font-bold text-gray-900 transition-colors duration-300 group-hover:text-red-600">
@@ -373,15 +373,15 @@ export default function Home() {
                 collection, sorting, and delivery of essential medical supplies
                 to ostomates across Africa.
               </p>
-              <Button className="bg-red-600 hover:bg-red-700 text-white w-full transition-all duration-300 hover:shadow-lg transform hover:scale-105 active:scale-95">
+              <Button className="bg-red-600 hover:bg-red-700 text-white w-full transition-all duration-300 hover:shadow-lg transform hover:scale-102 active:scale-98">
                 Donate Now
               </Button>
             </Card>
 
             {/* Volunteer Card */}
-            <Card className="p-8 hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border border-gray-100 hover:border-red-200 group cursor-pointer">
+            <Card className="p-8 hover:shadow-lg transition-all duration-300 transform hover:scale-102 hover:-translate-y-1 bg-gradient-to-br from-white to-gray-50 border border-gray-100 hover:border-red-200 group cursor-pointer">
               <div className="flex items-center gap-3 mb-4 transition-all duration-300">
-                <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:bg-red-600 group-hover:scale-125">
+                <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:bg-red-600">
                   <Users className="w-6 h-6 text-red-600 transition-colors duration-300 group-hover:text-white" />
                 </div>
                 <h4 className="text-2xl font-bold text-gray-900 transition-colors duration-300 group-hover:text-red-600">
@@ -394,7 +394,7 @@ export default function Home() {
               </p>
               <Button
                 variant="outline"
-                className="border-red-600 text-red-600 hover:bg-red-50 w-full transition-all duration-300 hover:shadow-lg transform hover:scale-105 active:scale-95"
+                className="border-red-600 text-red-600 hover:bg-red-50 w-full transition-all duration-300 hover:shadow-lg transform hover:scale-102 active:scale-98"
               >
                 Get Started
               </Button>
@@ -422,9 +422,9 @@ export default function Home() {
             ].map((info, idx) => (
               <Card
                 key={idx}
-                className="p-6 bg-gradient-to-br from-red-50 to-red-100 border-l-4 border-red-600 hover:shadow-lg transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 group cursor-pointer"
+                className="p-6 bg-gradient-to-br from-red-50 to-red-100 border-l-4 border-red-600 hover:shadow-lg transition-all duration-300 transform hover:scale-102 hover:-translate-y-1 group cursor-pointer"
               >
-                <p className="text-2xl mb-2 transition-transform duration-300 group-hover:scale-125">
+                <p className="text-2xl mb-2 transition-transform duration-300">
                   {info.icon}
                 </p>
                 <p className="text-sm text-gray-600 mb-2 transition-colors duration-300 group-hover:text-gray-900">
@@ -472,9 +472,9 @@ export default function Home() {
               return (
                 <Card
                   key={idx}
-                  className="p-8 text-center hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border border-gray-100 hover:border-red-200 group cursor-pointer"
+                  className="p-8 text-center hover:shadow-lg transition-all duration-300 transform hover:scale-102 hover:-translate-y-1 bg-gradient-to-br from-white to-gray-50 border border-gray-100 hover:border-red-200 group cursor-pointer"
                 >
-                  <div className="transition-all duration-300 group-hover:scale-125 inline-block mb-4">
+                  <div className="transition-all duration-300 inline-block mb-4">
                     <Icon className="w-8 h-8 text-red-600 transition-colors duration-300 group-hover:text-red-700" />
                   </div>
                   <h4 className="text-lg font-bold text-gray-900 mb-2 transition-colors duration-300 group-hover:text-red-600">
@@ -492,7 +492,7 @@ export default function Home() {
           </div>
 
           {/* Trust Section - Premium governance card */}
-          <Card className="p-8 bg-gradient-to-r from-gray-900 to-gray-800 border-t-4 border-red-600 hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 group cursor-pointer">
+          <Card className="p-8 bg-gradient-to-r from-gray-900 to-gray-800 border-t-4 border-red-600 hover:shadow-lg transition-all duration-300 transform hover:scale-102 hover:-translate-y-1 group cursor-pointer">
             <h4 className="text-2xl font-bold text-white mb-6 transition-colors duration-300 group-hover:text-red-400">
               Trust & Governance
             </h4>
@@ -513,10 +513,10 @@ export default function Home() {
               ].map((trust, idx) => (
                 <div
                   key={idx}
-                  className="transition-all duration-300 group-hover:translate-x-2"
+                  className="transition-all duration-300 group-hover:translate-x-1"
                 >
                   <div className="flex items-center gap-2 mb-2">
-                    <CheckCircle className="w-5 h-5 text-red-600 transition-transform duration-300 group-hover:scale-125" />
+                    <CheckCircle className="w-5 h-5 text-red-600 transition-transform duration-300" />
                     <p className="font-semibold text-white transition-colors duration-300 group-hover:text-red-400">
                       {trust.title}
                     </p>
@@ -531,12 +531,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer - Premium footer with interactive elements */}
+      {/* Footer - Premium footer with refined interactions */}
       <footer className="bg-gradient-to-b from-gray-900 to-black text-white py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             {/* Brand */}
-            <div className="transition-all duration-300 hover:translate-y-1">
+            <div className="transition-all duration-300 hover:opacity-80">
               <h4 className="text-lg font-bold mb-4 transition-colors duration-300 hover:text-red-400">
                 Footprints 2 Africa
               </h4>
@@ -556,7 +556,7 @@ export default function Home() {
                   <li key={idx}>
                     <a
                       href={`#${link.toLowerCase().replace(" ", "-")}`}
-                      className="hover:text-red-400 transition-all duration-300 hover:translate-x-2 inline-block"
+                      className="hover:text-red-400 transition-all duration-300 hover:translate-x-1 inline-block"
                     >
                       {link}
                     </a>
@@ -576,7 +576,7 @@ export default function Home() {
                     <li key={idx}>
                       <a
                         href="#"
-                        className="hover:text-red-400 transition-all duration-300 hover:translate-x-2 inline-block"
+                        className="hover:text-red-400 transition-all duration-300 hover:translate-x-1 inline-block"
                       >
                         {link}
                       </a>
@@ -596,7 +596,7 @@ export default function Home() {
                   <li key={idx}>
                     <a
                       href="#"
-                      className="hover:text-red-400 transition-all duration-300 hover:translate-x-2 inline-block"
+                      className="hover:text-red-400 transition-all duration-300 hover:translate-x-1 inline-block"
                     >
                       {link}
                     </a>
