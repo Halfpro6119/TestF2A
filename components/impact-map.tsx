@@ -96,8 +96,8 @@ export function ImpactMap({ className = "" }: ImpactMapProps) {
                     key={geo.rsmKey}
                     geography={geo}
                     fill={fill}
-                    stroke="#ffffff"
-                    strokeWidth={isHovered ? 1.5 : 0.5}
+                    stroke={isHovered ? "#84cc16" : "#ffffff"}
+                    strokeWidth={isHovered ? 2 : 0.5}
                     style={{
                       default: { outline: "none" },
                       hover: {
@@ -105,6 +105,8 @@ export function ImpactMap({ className = "" }: ImpactMapProps) {
                         fill: hasSupplies
                           ? getColorForSupplies(supplies)
                           : "#9ca3af",
+                        stroke: "#84cc16",
+                        strokeWidth: 2,
                         cursor: "pointer",
                       },
                       pressed: { outline: "none" },
