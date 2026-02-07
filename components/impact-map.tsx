@@ -26,7 +26,7 @@ const SOUTHERN_AFRICA_COUNTRIES = new Set([
   "Tanzania",
 ]);
 
-// Supply data - more supplies = redder
+// Supply data - more supplies = greener to navy (hero palette)
 const SUPPLIES_DATA: Record<string, number> = {
   "South Africa": 12543,
   Zimbabwe: 8234,
@@ -38,15 +38,18 @@ const SUPPLIES_DATA: Record<string, number> = {
 const GEO_URL =
   "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
-// Interpolate color: more supplies = redder (from light pink to dark red)
+// Brand colors from hero (light green = fewer supplies, navy = more)
+const BRAND_GREEN = { r: 124, g: 184, b: 124 }; // #7CB87C
+const BRAND_NAVY = { r: 31, g: 58, b: 140 }; // #1F3A8C
+
+// Interpolate color: more supplies = more navy (landmass green → ocean navy)
 function getColorForSupplies(supplies: number): string {
   const min = 2430;
   const max = 12543;
   const t = (supplies - min) / (max - min); // 0 to 1
-  // RGB: light #fecaca (254,202,202) to dark #991b1b (153,27,27)
-  const r = Math.round(254 - t * (254 - 153));
-  const g = Math.round(202 - t * (202 - 27));
-  const b = Math.round(202 - t * (202 - 27));
+  const r = Math.round(BRAND_GREEN.r + t * (BRAND_NAVY.r - BRAND_GREEN.r));
+  const g = Math.round(BRAND_GREEN.g + t * (BRAND_NAVY.g - BRAND_GREEN.g));
+  const b = Math.round(BRAND_GREEN.b + t * (BRAND_NAVY.b - BRAND_GREEN.b));
   return `rgb(${r},${g},${b})`;
 }
 
@@ -90,13 +93,14 @@ export function ImpactMap({ className = "" }: ImpactMapProps) {
                 const hasSupplies = supplies !== undefined;
                 const fill = hasSupplies ? getColorForSupplies(supplies) : "#d1d5db";
                 const isHovered = hoveredCountry === name;
+                const hoverStroke = "#5B8DEE"; // brand-blue
 
                 return (
                   <Geography
                     key={geo.rsmKey}
                     geography={geo}
                     fill={fill}
-                    stroke={isHovered ? "#84cc16" : "#ffffff"}
+                    stroke={isHovered ? hoverStroke : "#ffffff"}
                     strokeWidth={isHovered ? 2 : 0.5}
                     style={{
                       default: { outline: "none" },
@@ -105,7 +109,7 @@ export function ImpactMap({ className = "" }: ImpactMapProps) {
                         fill: hasSupplies
                           ? getColorForSupplies(supplies)
                           : "#9ca3af",
-                        stroke: "#84cc16",
+                        stroke: hoverStroke,
                         strokeWidth: 2,
                         cursor: "pointer",
                       },
@@ -134,7 +138,7 @@ export function ImpactMap({ className = "" }: ImpactMapProps) {
       {/* Tooltip */}
       {tooltipContent && (
         <div
-          className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-sm font-medium px-4 py-2 rounded-lg shadow-lg pointer-events-none z-10 whitespace-nowrap"
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-[#1F3A8C] text-white text-sm font-medium px-4 py-2 rounded-lg shadow-lg pointer-events-none z-10 whitespace-nowrap"
           role="tooltip"
         >
           {tooltipContent}

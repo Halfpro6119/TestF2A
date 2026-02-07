@@ -30,6 +30,7 @@ import {
 } from "lucide-react";
 import { CountUp } from "use-count-up";
 import { ImpactMap } from "@/components/impact-map";
+import { DonateSection } from "@/components/donate-section";
 
 /**
  * Home Page Component - Premium Charity Website
@@ -126,13 +127,13 @@ export default function Home() {
     },
   ];
 
-  // Impact map data - countries served with statistics
+  // Impact map data - countries served with statistics (brand green → navy scale)
   const countriesServed = [
-    { name: "South Africa", supplies: 12543, color: "bg-red-500" },
-    { name: "Zimbabwe", supplies: 8234, color: "bg-red-600" },
-    { name: "Botswana", supplies: 5421, color: "bg-red-400" },
-    { name: "Namibia", supplies: 3124, color: "bg-red-300" },
-    { name: "Lesotho", supplies: 2430, color: "bg-red-200" },
+    { name: "South Africa", supplies: 12543, color: "bg-brand-navy" },
+    { name: "Zimbabwe", supplies: 8234, color: "bg-brand-navy-light" },
+    { name: "Botswana", supplies: 5421, color: "bg-brand-blue" },
+    { name: "Namibia", supplies: 3124, color: "bg-brand-green" },
+    { name: "Lesotho", supplies: 2430, color: "bg-brand-green-light" },
   ];
 
   // Single source for impact numbers (kept in sync with counters + geographic section)
@@ -144,7 +145,7 @@ export default function Home() {
         Skip to content
       </a>
       {/* Navigation Bar - Premium fixed header */}
-      <nav className={`fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-gray-200 transition-shadow duration-300 ${scrollY > 20 ? "shadow-sm" : ""}`}>
+      <nav className={`fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-brand-blue/20 transition-shadow duration-300 ${scrollY > 20 ? "shadow-sm" : ""}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           {/* Logo with subtle hover effect */}
           <div className="flex items-center gap-3 group cursor-pointer transition-all duration-300 hover:opacity-80">
@@ -158,10 +159,10 @@ export default function Home() {
               />
             </div>
             <div className="transition-colors duration-300">
-              <span className="text-lg font-bold text-gray-900 transition-colors duration-300 group-hover:text-red-600 block">
+              <span className="text-lg font-bold text-gray-900 transition-colors duration-300 group-hover:text-brand-navy block">
                 Footprints 2 Africa
               </span>
-              <p className="text-xs text-gray-600 transition-colors duration-300 group-hover:text-red-500">
+              <p className="text-xs text-gray-600 transition-colors duration-300 group-hover:text-brand-navy">
                 Restoring Dignity
               </p>
             </div>
@@ -169,30 +170,33 @@ export default function Home() {
 
           {/* Desktop Navigation Menu */}
           <div className="hidden md:flex items-center gap-8">
-            {["Home", "About", "Impact", "Get Involved", "Contact"].map(
+            {["Home", "About", "Impact", "Get Involved", "Donate", "Contact"].map(
               (item, idx) => (
                 <a
                   key={idx}
                   href={`#${item.toLowerCase().replace(" ", "-")}`}
-                  className="text-gray-700 hover:text-red-600 transition-colors duration-300 font-medium text-sm relative group"
+                  className="text-gray-700 hover:text-brand-navy transition-colors duration-300 font-medium text-sm relative group"
                 >
                   {item}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-navy transition-all duration-300 group-hover:w-full"></span>
                 </a>
               )
             )}
           </div>
 
           {/* Donate Button */}
-          <Button className="hidden sm:flex bg-red-600 hover:bg-red-700 text-white min-h-[44px] min-w-[44px] transition-colors duration-300 focus-visible:ring-red-500 focus-visible:ring-offset-2">
-            Donate
+          <Button
+            asChild
+            className="hidden sm:flex bg-brand-red hover:bg-brand-red-hover text-white min-h-[44px] min-w-[44px] transition-colors duration-300 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
+          >
+            <a href="#donate">Donate</a>
           </Button>
 
           {/* Mobile menu button */}
           <button
             type="button"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 min-h-[44px] min-w-[44px] hover:bg-gray-100 rounded-lg transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
+            className="md:hidden p-2 min-h-[44px] min-w-[44px] hover:bg-brand-blue/10 rounded-lg transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
             aria-expanded={isMenuOpen}
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
@@ -215,20 +219,25 @@ export default function Home() {
             />
             <div className="md:hidden fixed top-[65px] left-4 right-4 bg-white border border-gray-200 border-t-0 rounded-b-xl shadow-lg z-50 animate-in fade-in slide-in-from-top-2 duration-300">
             <div className="px-4 py-4 space-y-3">
-              {["Home", "About", "Impact", "Get Involved", "Contact"].map(
+              {["Home", "About", "Impact", "Get Involved", "Donate", "Contact"].map(
                 (item, idx) => (
                   <a
                     key={idx}
                     href={`#${item.toLowerCase().replace(" ", "-")}`}
-                    className="block px-4 py-2 text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all duration-300"
+                    className="block px-4 py-2 text-gray-700 hover:text-brand-navy hover:bg-brand-blue/10 rounded-lg transition-all duration-300"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item}
                   </a>
                 )
               )}
-              <Button className="w-full bg-red-600 hover:bg-red-700 text-white min-h-[44px] transition-colors duration-300 focus-visible:ring-red-500 focus-visible:ring-offset-2">
-                Donate
+              <Button
+                asChild
+                className="w-full bg-brand-red hover:bg-brand-red-hover text-white min-h-[44px] transition-colors duration-300 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
+              >
+                <a href="#donate" onClick={() => setIsMenuOpen(false)}>
+                  Donate
+                </a>
               </Button>
             </div>
           </div>
@@ -237,40 +246,46 @@ export default function Home() {
       </nav>
 
       <main id="main">
-      {/* Hero Section - contained product block */}
+      {/* Hero Section - Footprints 2 Africa design image (contained product block) */}
       <section
         id="home"
         className="pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24 px-4 sm:px-6 lg:px-8 bg-white relative"
+        aria-labelledby="hero-heading"
       >
-        <div className="max-w-3xl mx-auto">
-          <div className="widget-container-hero p-8 sm:p-10 lg:p-12 text-center relative overflow-hidden">
-            {/* Single subtle blur for depth - no dot pattern */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-red-50/50 rounded-full mix-blend-multiply filter blur-3xl opacity-60 pointer-events-none" />
-            <div className="relative z-10">
-              <h1 className="heading-display text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight animate-in fade-in slide-in-from-bottom-4 duration-700">
-                Restoring Dignity,{" "}
-                <span className="bg-gradient-to-r from-red-600 to-red-400 bg-clip-text text-transparent">
-                  Delivering Hope
-                </span>
-              </h1>
-
-              <p className="text-lg sm:text-xl text-gray-700 mb-8 leading-relaxed animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
-                Connecting surplus medical supplies in the UK with people who
-                urgently need them across Africa.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
-                <Button className="bg-red-600 hover:bg-red-700 text-white px-8 py-6 text-lg sm:text-xl min-h-[44px] transition-colors duration-300 focus-visible:ring-red-500 focus-visible:ring-offset-2">
-                  Donate Now <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-                <Button
-                  variant="outline"
-                  className="px-8 py-6 text-lg min-h-[44px] border-gray-300 hover:bg-gray-50 transition-colors duration-300 hover:border-red-600 hover:text-red-600 focus-visible:ring-red-500 focus-visible:ring-offset-2"
-                >
-                  How We Help
-                </Button>
-              </div>
-              <p className="mt-6 legend-text">
+        <h1 id="hero-heading" className="sr-only">
+          Footprints 2 Africa – Restoring Dignity
+        </h1>
+        <div className="max-w-5xl mx-auto">
+          <div className="widget-container-hero overflow-hidden relative">
+            {/* Hero design image: UK–Africa journey, logo, Hope • Compassion • Dignity */}
+            <div className="relative aspect-[16/9] sm:aspect-[2.2/1] min-h-[240px] bg-brand-navy">
+              <Image
+                src="/images/footprints2africahero.png"
+                alt="Footprints 2 Africa – Hope, Compassion, Dignity. Journey from the UK to Africa connecting surplus medical supplies with those who need them."
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 1024px"
+                priority
+              />
+            </div>
+            {/* CTA strip: brand-aligned gradient, no blur */}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-brand-navy/95 via-brand-navy/80 to-transparent px-4 sm:px-6 py-4 sm:py-5 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+              <Button
+                asChild
+                className="bg-brand-red hover:bg-brand-red-hover text-white px-6 py-5 text-base sm:text-lg min-h-[44px] shadow-lg ring-2 ring-white/20 transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy shrink-0"
+              >
+                <a href="#donate">
+                  Donate Now <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+                </a>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                className="border-white bg-white/15 text-white font-semibold hover:bg-white/25 px-6 py-5 text-base min-h-[44px] transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy shrink-0"
+              >
+                <a href="#about">How We Help</a>
+              </Button>
+              <p className="legend-text text-white/90 text-center sm:text-left mt-1 sm:mt-0 sm:ml-2">
                 UK Registered Charity No. 1214173
               </p>
             </div>
@@ -296,14 +311,14 @@ export default function Home() {
                     key={idx}
                     className={`p-6 text-center rounded-lg border transition-colors transition-shadow duration-300 cursor-default group ${
                       metric.featured
-                        ? "border-red-200 bg-red-50/20 hover:border-red-200 hover:bg-red-50/30"
-                        : "border-gray-200 bg-white/50 hover:border-red-200 hover:bg-red-50/20"
+                        ? "border-brand-green/40 bg-brand-green-light/30 hover:border-brand-green/40 hover:bg-brand-green-light/40"
+                        : "border-gray-200 bg-white/50 hover:border-brand-blue/30 hover:bg-brand-blue/5"
                     }`}
                   >
                     <div className="flex justify-center mb-3">
-                      <IconComponent className="w-10 h-10 text-red-600" />
+                      <IconComponent className="w-10 h-10 text-brand-navy" />
                     </div>
-                    <p className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-red-600 to-red-500 bg-clip-text text-transparent mb-2">
+                    <p className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-brand-navy to-brand-blue bg-clip-text text-transparent mb-2">
                       {countersStarted ? (
                         <>
                           <CountUp
@@ -339,7 +354,7 @@ export default function Home() {
             <p className="legend-text text-center mb-10">One mission: dignity and hope for ostomates across Africa.</p>
 
             <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div className="p-6 rounded-lg border border-gray-200 transition-shadow duration-300 hover:shadow-md hover:border-gray-300">
+              <div className="p-6 rounded-lg border border-gray-200 transition-shadow duration-300 hover:shadow-md hover:border-brand-blue/20">
                 <h3 className="heading-display text-2xl font-bold text-gray-900 mb-4 leading-tight">
                   Our Purpose
                 </h3>
@@ -350,7 +365,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="p-6 rounded-lg border border-gray-200 transition-shadow duration-300 hover:shadow-md hover:border-gray-300">
+              <div className="p-6 rounded-lg border border-gray-200 transition-shadow duration-300 hover:shadow-md hover:border-brand-blue/20">
                 <h3 className="heading-display text-2xl font-bold text-gray-900 mb-4 leading-tight">
                   Our Vision
                 </h3>
@@ -362,7 +377,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="p-6 rounded-lg border border-gray-200 border-l-4 border-l-red-600 bg-red-50/20 transition-shadow duration-300 hover:shadow-md">
+            <div className="p-6 rounded-lg border border-gray-200 border-l-4 border-l-brand-navy bg-brand-blue/10 transition-shadow duration-300 hover:shadow-md">
               <h3 className="heading-display text-2xl font-bold text-gray-900 mb-4 leading-tight">
                 Why It Matters
               </h3>
@@ -391,9 +406,9 @@ export default function Home() {
               {testimonials.map((testimonial, idx) => (
                 <Card
                   key={idx}
-                  className={`overflow-hidden transition-shadow duration-300 cursor-pointer border-2 hover:shadow-lg hover:border-red-200 ${
+                  className={`overflow-hidden transition-shadow duration-300 cursor-pointer border-2 hover:shadow-lg hover:border-brand-blue/30 ${
                     activeTestimonial === idx
-                      ? "border-red-600 shadow-lg"
+                      ? "border-brand-navy shadow-lg"
                       : "border-gray-200"
                   }`}
                   onClick={() => setActiveTestimonial(idx)}
@@ -415,7 +430,7 @@ export default function Home() {
                     <h3 className="text-xl font-bold text-gray-900 mb-2">
                       {testimonial.name}
                     </h3>
-                    <p className="legend-text-sm mb-3 flex items-center gap-1 text-red-600">
+                    <p className="legend-text-sm mb-3 flex items-center gap-1 text-brand-navy">
                       <MapPin className="w-3.5 h-3.5" /> {testimonial.location}
                     </p>
                     <p className="text-gray-700 text-sm italic mb-4">
@@ -423,7 +438,7 @@ export default function Home() {
                     </p>
                     <Button
                       variant="link"
-                      className="text-red-600 hover:text-red-700 p-0 text-sm transition-colors duration-300 focus-visible:ring-red-500 focus-visible:ring-offset-2"
+                      className="text-brand-navy hover:text-brand-navy-light p-0 text-sm transition-colors duration-300 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
                     >
                       Watch Video →
                     </Button>
@@ -442,9 +457,9 @@ export default function Home() {
                     onClick={() => setActiveTestimonial(idx)}
                     aria-label={`Go to testimonial ${idx + 1}`}
                     aria-current={activeTestimonial === idx ? "true" : undefined}
-                    className={`min-h-[44px] min-w-[44px] rounded-full transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 ${
+                    className={`min-h-[44px] min-w-[44px] rounded-full transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2 ${
                       activeTestimonial === idx
-                        ? "bg-red-600 w-8"
+                        ? "bg-brand-navy w-8"
                         : "bg-gray-300 hover:bg-gray-400 w-3"
                     }`}
                   />
@@ -474,7 +489,7 @@ export default function Home() {
                 const IconComponent = badge.Icon;
                 const content = (
                   <div className="flex items-center gap-4">
-                    <IconComponent className="w-8 h-8 text-red-600 shrink-0" />
+                    <IconComponent className="w-8 h-8 text-brand-navy shrink-0" />
                     <div>
                       <p className="font-bold text-gray-900">{badge.title}</p>
                       <p className="legend-text">{badge.desc}</p>
@@ -484,7 +499,7 @@ export default function Home() {
                 return (
                   <div key={idx} className="md:border-r border-gray-200 md:last:border-r-0 md:pr-8 md:last:pr-0">
                     {badge.href ? (
-                      <a href={badge.href} target="_blank" rel="noopener noreferrer" className="block focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 rounded-md outline-none hover:opacity-90 transition-opacity">
+                      <a href={badge.href} target="_blank" rel="noopener noreferrer" className="block focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2 rounded-md outline-none hover:opacity-90 transition-opacity">
                         {content}
                       </a>
                     ) : (
@@ -505,9 +520,9 @@ export default function Home() {
               {partners.map((partner, idx) => (
                 <div
                   key={idx}
-                  className="p-4 text-center border border-gray-200 rounded-lg transition-colors duration-300 hover:border-red-200 hover:bg-red-50/20"
+                  className="p-4 text-center border border-gray-200 rounded-lg transition-colors duration-300 hover:border-brand-blue/30 hover:bg-brand-blue/5"
                 >
-                  <Building2 className="w-10 h-10 text-red-600 mx-auto mb-2" />
+                  <Building2 className="w-10 h-10 text-brand-navy mx-auto mb-2" />
                   <p className="font-semibold text-gray-900 text-sm">{partner.name}</p>
                 </div>
               ))}
@@ -526,7 +541,7 @@ export default function Home() {
                   className="p-6 border border-gray-200 rounded-lg transition-shadow duration-300 hover:shadow-md hover:border-gray-300"
                 >
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold text-sm shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-brand-blue/20 flex items-center justify-center text-brand-navy font-bold text-sm shrink-0">
                       {testimonial.name.split(" ").map(n => n[0]).join("")}
                     </div>
                     <div>
@@ -553,7 +568,7 @@ export default function Home() {
           </p>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="bg-gradient-to-br from-red-50 to-white rounded-xl p-6 border border-gray-200 ring-1 ring-gray-200/50 overflow-hidden">
+            <div className="bg-gradient-to-br from-brand-green-light/30 to-white rounded-xl p-6 border border-gray-200 ring-1 ring-gray-200/50 overflow-hidden">
               <ImpactMap className="w-full" />
               <p className="text-center legend-text-sm mt-4">
                 {TOTAL_SUPPLIES.toLocaleString()}+ supplies delivered across 5 countries
@@ -564,13 +579,13 @@ export default function Home() {
               {countriesServed.map((country, idx) => (
                 <div
                   key={idx}
-                  className="group cursor-pointer transition-colors duration-300 hover:border-red-200 rounded-lg border border-transparent p-2 -m-2"
+                  className="group cursor-pointer transition-colors duration-300 hover:border-brand-blue/30 rounded-lg border border-transparent p-2 -m-2"
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <p className="font-semibold text-gray-900 text-sm group-hover:text-red-600">
+                    <p className="font-semibold text-gray-900 text-sm group-hover:text-brand-navy">
                       {country.name}
                     </p>
-                    <p className="legend-text-sm text-red-600">
+                    <p className="legend-text-sm text-brand-navy">
                       {country.supplies.toLocaleString()} supplies
                     </p>
                   </div>
@@ -599,7 +614,7 @@ export default function Home() {
             <p className="legend-text text-center mb-10">Step 1 of 4</p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 relative">
-              <div className="hidden lg:block absolute top-8 left-0 right-0 h-0.5 border-t-2 border-dashed border-gray-200 z-0" style={{ marginLeft: "12.5%", marginRight: "12.5%" }} />
+              <div className="hidden lg:block absolute top-8 left-0 right-0 h-0.5 border-t-2 border-dashed border-brand-blue/30 z-0" style={{ marginLeft: "12.5%", marginRight: "12.5%" }} />
               {[
                 { num: 1, title: "Collect Donations", desc: "From individuals, NHS trusts, and medical suppliers across the UK", Icon: Package },
                 { num: 2, title: "Sort & Pack", desc: "Our volunteer team carefully organizes supplies for distribution", Icon: Boxes },
@@ -612,7 +627,7 @@ export default function Home() {
                     key={idx}
                     className="text-center relative z-10"
                   >
-                    <div className="w-14 h-14 bg-gradient-to-br from-red-600 to-red-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 transition-shadow duration-300 hover:shadow-md">
+                    <div className="w-14 h-14 bg-gradient-to-br from-brand-navy to-brand-blue text-white rounded-full flex items-center justify-center mx-auto mb-4 transition-shadow duration-300 hover:shadow-md">
                       <StepIcon className="w-6 h-6" />
                     </div>
                     <h3 className="text-lg font-bold text-gray-900 mb-2 leading-tight">
@@ -629,6 +644,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Donate Section - inspired by donation form with toggle + amount buttons */}
+      <DonateSection />
+
       {/* Get Involved - one actions block + legend row */}
       <section id="get-involved" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
@@ -641,10 +659,10 @@ export default function Home() {
 
           <div className="widget-container-gradient p-8 mb-8">
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="p-6 rounded-xl border border-gray-200 bg-white/80 transition-shadow duration-300 hover:shadow-md hover:border-red-200">
+              <div className="p-6 rounded-xl border border-gray-200 bg-white/80 transition-shadow duration-300 hover:shadow-md hover:border-brand-navy/40">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
-                    <Heart className="w-6 h-6 text-red-600" />
+                  <div className="w-12 h-12 bg-brand-blue/20 rounded-lg flex items-center justify-center">
+                    <Heart className="w-6 h-6 text-brand-navy" />
                   </div>
                   <h3 className="heading-display text-2xl font-bold text-gray-900 leading-tight">
                     Make a Donation
@@ -653,15 +671,18 @@ export default function Home() {
                 <p className="text-gray-600 text-sm mb-6 leading-relaxed">
                   Direct impact on lives. Your donation funds collection, sorting, and delivery of essential medical supplies.
                 </p>
-                <Button className="bg-red-600 hover:bg-red-700 text-white w-full min-h-[44px] transition-colors duration-300 focus-visible:ring-red-500 focus-visible:ring-offset-2">
-                  Donate Now
+                <Button
+                  asChild
+                  className="bg-brand-red hover:bg-brand-red-hover text-white w-full min-h-[44px] transition-colors duration-300 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
+                >
+                  <a href="#donate">Donate Now</a>
                 </Button>
               </div>
 
-              <div className="p-6 rounded-xl border border-gray-200 bg-white/80 transition-shadow duration-300 hover:shadow-md hover:border-red-200">
+              <div className="p-6 rounded-xl border border-gray-200 bg-white/80 transition-shadow duration-300 hover:shadow-md hover:border-brand-navy/40">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
-                    <Users className="w-6 h-6 text-red-600" />
+                  <div className="w-12 h-12 bg-brand-blue/20 rounded-lg flex items-center justify-center">
+                    <Users className="w-6 h-6 text-brand-navy" />
                   </div>
                   <h3 className="heading-display text-2xl font-bold text-gray-900 leading-tight">
                     Volunteer
@@ -672,7 +693,7 @@ export default function Home() {
                 </p>
                 <Button
                   variant="outline"
-                  className="border-red-600 text-red-600 hover:bg-red-50 w-full min-h-[44px] transition-colors duration-300 focus-visible:ring-red-500 focus-visible:ring-offset-2"
+                  className="border-brand-navy text-brand-navy hover:bg-brand-navy/5 w-full min-h-[44px] transition-colors duration-300 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
                 >
                   Get Started
                 </Button>
@@ -723,13 +744,13 @@ export default function Home() {
                 return (
                   <div key={idx} className={idx < 2 ? "md:border-r border-gray-200 md:pr-8" : ""}>
                     {contact.href ? (
-                      <a href={contact.href} className="block focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 rounded-lg outline-none hover:text-red-600 transition-colors">
-                        <Icon className="w-6 h-6 text-red-600 mx-auto mb-2" />
+                      <a href={contact.href} className="block focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2 rounded-lg outline-none hover:text-brand-navy transition-colors">
+                        <Icon className="w-6 h-6 text-brand-navy mx-auto mb-2" />
                         {content}
                       </a>
                     ) : (
                       <>
-                        <Icon className="w-6 h-6 text-red-600 mx-auto mb-2" />
+                        <Icon className="w-6 h-6 text-brand-navy mx-auto mb-2" />
                         {content}
                       </>
                     )}
@@ -740,7 +761,7 @@ export default function Home() {
           </div>
 
           <div className="widget-container rounded-xl border border-gray-200 overflow-hidden">
-            <div className="p-8 bg-gray-900">
+            <div className="p-8 bg-brand-navy">
               <h3 className="text-2xl font-bold text-white mb-6 leading-tight">
                 Trust & Governance
               </h3>
@@ -752,7 +773,7 @@ export default function Home() {
                 ].map((trust, idx) => (
                   <div key={idx}>
                     <div className="flex items-center gap-2 mb-2">
-                      <CheckCircle className="w-5 h-5 text-red-400 shrink-0" />
+                      <CheckCircle className="w-5 h-5 text-brand-blue shrink-0" />
                       <p className="font-semibold text-white">{trust.title}</p>
                     </div>
                     <p className="text-gray-400 text-sm leading-relaxed">{trust.desc}</p>
@@ -765,7 +786,7 @@ export default function Home() {
       </section>
 
       {/* Footer - solid dark, clear dividers, muted links */}
-      <footer className="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+      <footer className="bg-brand-navy text-white py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
             <div>
@@ -777,16 +798,16 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="sm:border-r sm:border-gray-800 sm:pr-8">
+            <div className="sm:border-r sm:border-white/15 sm:pr-8">
               <h3 className="text-sm font-bold mb-4 text-gray-200">
                 Quick Links
               </h3>
               <ul className="space-y-2 text-sm">
-                {["Home", "About", "Impact", "Get Involved"].map((link, idx) => (
+                {["Home", "About", "Impact", "Get Involved", "Donate"].map((link, idx) => (
                   <li key={idx}>
                     <a
                       href={`#${link.toLowerCase().replace(" ", "-")}`}
-                      className="text-gray-400 hover:text-gray-200 transition-colors duration-300 inline-block focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 rounded"
+                      className="text-gray-400 hover:text-brand-blue transition-colors duration-300 inline-block focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy rounded"
                     >
                       {link}
                     </a>
@@ -795,7 +816,7 @@ export default function Home() {
               </ul>
             </div>
 
-            <div className="sm:border-r sm:border-gray-800 sm:pr-8">
+            <div className="sm:border-r sm:border-white/15 sm:pr-8">
               <h3 className="text-sm font-bold mb-4 text-gray-200">
                 Legal
               </h3>
@@ -805,7 +826,7 @@ export default function Home() {
                     <li key={idx}>
                       <a
                         href="#"
-                        className="text-gray-400 hover:text-gray-200 transition-colors duration-300 inline-block focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 rounded"
+                        className="text-gray-400 hover:text-brand-blue transition-colors duration-300 inline-block focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy rounded"
                       >
                         {link}
                       </a>
@@ -830,7 +851,7 @@ export default function Home() {
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-gray-400 hover:text-red-400 transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 rounded min-h-[44px]"
+                      className="flex items-center gap-2 text-gray-400 hover:text-brand-blue transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy rounded min-h-[44px]"
                       aria-label={name}
                     >
                       <Icon className="w-5 h-5 shrink-0" />
@@ -842,10 +863,10 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
+          <div className="border-t border-white/15 pt-8 text-center text-gray-400 text-sm">
             <p>© 2026 Footprints 2 Africa. UK Registered Charity No. 1214173.</p>
             <p className="mt-2">
-              <a href="#" className="hover:text-red-400 transition-colors duration-300">Designed with compassion for those who need it most.</a>
+              <a href="#" className="hover:text-brand-blue transition-colors duration-300">Designed with compassion for those who need it most.</a>
             </p>
           </div>
         </div>
