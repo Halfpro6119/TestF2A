@@ -785,10 +785,98 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer - solid dark, clear dividers, muted links */}
+      {/* Footer - SITE MAP section inspired by charity footer + links, social, legal */}
       <footer className="bg-brand-navy text-white py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          {/* Site Map Section - inspired by charity footer layout */}
+          <div className="mb-10">
+            <h3 className="text-base font-bold uppercase tracking-wide mb-4 text-white/95">
+              Site Map
+            </h3>
+            <ul className="space-y-2 text-sm text-white/90 mb-6">
+              <li>
+                <a
+                  href="#about"
+                  className="hover:text-brand-blue transition-colors duration-300 inline-block focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy rounded"
+                >
+                  About Footprints 2 Africa
+                </a>
+              </li>
+              <li className="pl-4">
+                <a
+                  href="#"
+                  className="text-white/80 hover:text-brand-blue transition-colors duration-300 inline-block focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy rounded"
+                >
+                  – Policies
+                </a>
+              </li>
+              <li className="pl-4">
+                <a
+                  href="#"
+                  className="text-white/80 hover:text-brand-blue transition-colors duration-300 inline-block focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy rounded"
+                >
+                  – Trustees
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#get-involved"
+                  className="hover:text-brand-blue transition-colors duration-300 inline-block focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy rounded"
+                >
+                  Get Involved
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#get-involved"
+                  className="hover:text-brand-blue transition-colors duration-300 inline-block focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy rounded"
+                >
+                  Apply for a Grant
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#donate"
+                  className="hover:text-brand-blue transition-colors duration-300 inline-block focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy rounded"
+                >
+                  Donate
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#impact"
+                  className="hover:text-brand-blue transition-colors duration-300 inline-block focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy rounded"
+                >
+                  Stories of Change
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  className="hover:text-brand-blue transition-colors duration-300 inline-block focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy rounded"
+                >
+                  Contact
+                </a>
+              </li>
+            </ul>
+            <div className="flex flex-wrap gap-3">
+              <Button
+                asChild
+                className="bg-brand-red hover:bg-brand-red-hover text-white font-bold uppercase tracking-wide px-6 py-5 min-h-[44px] rounded-md transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
+              >
+                <a href="#donate">Become a Supporter</a>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                className="border-white/60 text-white hover:bg-white/15 font-bold uppercase tracking-wide px-6 py-5 min-h-[44px] rounded-md transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
+              >
+                <a href="#get-involved">Apply for a Grant</a>
+              </Button>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
             <div>
               <h3 className="text-sm font-bold mb-4 text-gray-200">
                 Footprints 2 Africa
@@ -796,24 +884,6 @@ export default function Home() {
               <p className="text-gray-400 text-sm leading-relaxed">
                 Restoring dignity, hope, and human worth to ostomates across Africa.
               </p>
-            </div>
-
-            <div className="sm:border-r sm:border-white/15 sm:pr-8">
-              <h3 className="text-sm font-bold mb-4 text-gray-200">
-                Quick Links
-              </h3>
-              <ul className="space-y-2 text-sm">
-                {["Home", "About", "Impact", "Get Involved", "Donate"].map((link, idx) => (
-                  <li key={idx}>
-                    <a
-                      href={`#${link.toLowerCase().replace(" ", "-")}`}
-                      className="text-gray-400 hover:text-brand-blue transition-colors duration-300 inline-block focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy rounded"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
             </div>
 
             <div className="sm:border-r sm:border-white/15 sm:pr-8">
@@ -863,8 +933,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="border-t border-white/15 pt-8 text-center text-gray-400 text-sm">
-            <p>© 2026 Footprints 2 Africa. UK Registered Charity No. 1214173.</p>
+          <div className="border-t border-white/15 pt-8 text-gray-400 text-sm space-y-2">
+            <p>Footprints 2 Africa is a registered charity in England and Wales, no. 1214173</p>
+            <p>© Copyright 2026, Footprints 2 Africa. All rights reserved.</p>
             <p className="mt-2">
               <a href="#" className="hover:text-brand-blue transition-colors duration-300">Designed with compassion for those who need it most.</a>
             </p>
