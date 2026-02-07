@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import type { Feature } from "geojson";
 import {
   ComposableMap,
   Geographies,
@@ -58,11 +59,12 @@ export function ImpactMap({ className = "" }: ImpactMapProps) {
   const [hoveredCountry, setHoveredCountry] = useState<string | null>(null);
 
   const parseGeographies = useMemo(
-    () => (features: Array<{ properties?: { name?: string } }>) => {
+    () => (features: Feature[]) => {
       return (features ?? []).filter(
-        (f) =>
-          f?.properties?.name &&
-          SOUTHERN_AFRICA_COUNTRIES.has(f.properties.name)
+        (f): f is Feature => {
+          const name = (f?.properties as { name?: string } | undefined)?.name;
+          return typeof name === "string" && SOUTHERN_AFRICA_COUNTRIES.has(name);
+        }
       );
     },
     []
