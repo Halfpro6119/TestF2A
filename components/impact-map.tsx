@@ -38,9 +38,9 @@ const SUPPLIES_DATA: Record<string, number> = {
 const GEO_URL =
   "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
-// Brand colors from hero (light green = fewer supplies, navy = more)
-const BRAND_GREEN = { r: 124, g: 184, b: 124 }; // #7CB87C
-const BRAND_NAVY = { r: 31, g: 58, b: 140 }; // #1F3A8C
+// Brand colors: map green (fewer supplies) → blue (more)
+const BRAND_GREEN = { r: 175, g: 220, b: 177 }; // #AFDCB1 Green on Map
+const BRAND_NAVY = { r: 42, g: 48, b: 124 }; // #2A307C Blue
 
 // Interpolate color: more supplies = more navy (landmass green → ocean navy)
 function getColorForSupplies(supplies: number): string {
@@ -93,7 +93,7 @@ export function ImpactMap({ className = "" }: ImpactMapProps) {
                 const hasSupplies = supplies !== undefined;
                 const fill = hasSupplies ? getColorForSupplies(supplies) : "#d1d5db";
                 const isHovered = hoveredCountry === name;
-                const hoverStroke = "#5B8DEE"; // brand-blue
+                const hoverStroke = "#2A307C"; // brand blue
 
                 return (
                   <Geography
@@ -138,7 +138,7 @@ export function ImpactMap({ className = "" }: ImpactMapProps) {
       {/* Tooltip */}
       {tooltipContent && (
         <div
-          className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-[#1F3A8C] text-white text-sm font-medium px-4 py-2 rounded-lg shadow-lg pointer-events-none z-10 whitespace-nowrap"
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-[#2A307C] text-white text-sm font-medium px-4 py-2 rounded-lg shadow-lg pointer-events-none z-10 whitespace-nowrap"
           role="tooltip"
         >
           {tooltipContent}

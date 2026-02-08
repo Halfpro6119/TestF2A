@@ -49,7 +49,7 @@ export function DonateSection() {
   return (
     <section
       id="donate"
-      className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50"
+      className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-brand-grey"
       aria-labelledby="donate-heading"
     >
       <div className="max-w-4xl mx-auto">
@@ -115,7 +115,7 @@ export function DonateSection() {
                     className={`min-h-[48px] rounded-lg font-semibold transition-all duration-200 border-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2 ${
                       isSelected
                         ? "bg-brand-navy text-white border-brand-navy"
-                        : "bg-gray-100 text-gray-800 border-gray-200 hover:border-brand-blue/40 hover:bg-gray-50"
+                        : "bg-gray-100 text-gray-800 border-gray-200 hover:border-brand-blue/40 hover:bg-brand-grey"
                     }`}
                   >
                     £{amount}

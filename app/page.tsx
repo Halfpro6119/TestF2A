@@ -345,7 +345,7 @@ export default function Home() {
       </section>
 
       {/* About Section - one contained block */}
-      <section id="about" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section id="about" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-brand-grey">
         <div className="max-w-4xl mx-auto">
           <div className="widget-container bg-white p-8 md:p-10">
             <h2 className="heading-display text-4xl font-bold text-gray-900 mb-2 text-center leading-tight">
@@ -394,7 +394,7 @@ export default function Home() {
       {/* Video Testimonials - one widget container */}
       <section id="impact" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="widget-container rounded-xl border border-gray-200 bg-gradient-to-br from-white to-gray-50/50 p-6 md:p-8">
+          <div className="widget-container rounded-xl border border-gray-200 bg-gradient-to-br from-white to-brand-grey/50 p-6 md:p-8">
             <h2 className="heading-display text-4xl font-bold text-gray-900 mb-2 text-center leading-tight">
               Stories of Change
             </h2>
@@ -472,7 +472,7 @@ export default function Home() {
       </section>
 
       {/* Trust & Social Proof - widget containers */}
-      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-brand-grey">
         <div className="max-w-6xl mx-auto space-y-8">
           <h2 className="heading-display text-4xl font-bold text-gray-900 text-center leading-tight">
             Trusted by Partners & Supporters
@@ -605,7 +605,7 @@ export default function Home() {
       </section>
 
       {/* How It Works - one process widget */}
-      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-brand-grey">
         <div className="max-w-6xl mx-auto">
           <div className="widget-container bg-white p-8">
             <h2 className="heading-display text-4xl font-bold text-gray-900 mb-2 text-center leading-tight">
@@ -718,7 +718,7 @@ export default function Home() {
       </section>
 
       {/* Contact - one container for methods, second for Trust & Governance */}
-      <section id="contact" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section id="contact" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-brand-grey">
         <div className="max-w-4xl mx-auto space-y-8">
           <h2 className="heading-display text-4xl font-bold text-gray-900 mb-2 text-center leading-tight">
             Get In Touch
@@ -869,7 +869,7 @@ export default function Home() {
               <Button
                 asChild
                 variant="outline"
-                className="border-white/60 text-white hover:bg-white/15 font-bold uppercase tracking-wide px-6 py-5 min-h-[44px] rounded-md transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
+                className="bg-white text-black border-black/20 hover:bg-gray-100 hover:text-black font-bold uppercase tracking-wide px-6 py-5 min-h-[44px] rounded-md transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
               >
                 <a href="#get-involved">Apply for a Grant</a>
               </Button>
