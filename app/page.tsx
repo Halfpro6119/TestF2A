@@ -31,6 +31,11 @@ import {
 import { CountUp } from "use-count-up";
 import { ImpactMap } from "@/components/impact-map";
 import { DonateSection } from "@/components/donate-section";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 /**
  * Home Page Component - Premium Charity Website
@@ -45,6 +50,7 @@ export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [countersStarted, setCountersStarted] = useState(false);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [playingVideoIndex, setPlayingVideoIndex] = useState<number | null>(null);
 
   // Track scroll position for scroll-triggered animations
   useEffect(() => {
@@ -69,31 +75,31 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
-  // Video testimonials data with embedded video URLs (videoId for YouTube thumbnails)
+  // Video testimonials – local Stories of Change videos
   const testimonials = [
     {
-      name: "Dickson's Story",
-      quote:
-        "The supplies gave me my life back. I can now work, go to school, and live with dignity.",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      videoId: "dQw4w9WgXcQ",
-      location: "Zimbabwe",
+      name: "Story of Change 1",
+      quote: "Hear directly from those whose lives have been transformed by access to ostomy supplies.",
+      videoSrc: "/videos/F2A Video Testimonial 1.mp4",
+      location: "Africa",
     },
     {
-      name: "Asanda's Story",
-      quote:
-        "I felt alone until Footprints 2 Africa reached out. Now I know I'm not the only one.",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      videoId: "dQw4w9WgXcQ",
-      location: "South Africa",
+      name: "Story of Change 2",
+      quote: "Real stories of dignity, hope, and community support.",
+      videoSrc: "/videos/F2A Video Testimonial 2.mp4",
+      location: "Africa",
     },
     {
-      name: "Hospital Partnership",
-      quote:
-        "These supplies have transformed our ability to care for ostomates with dignity.",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      videoId: "dQw4w9WgXcQ",
-      location: "Botswana",
+      name: "Story of Change 3",
+      quote: "How your support is changing lives every day.",
+      videoSrc: "/videos/F2A Video Testimonial 3.mp4",
+      location: "Africa",
+    },
+    {
+      name: "Story of Change 4",
+      quote: "Together we are restoring hope and human worth.",
+      videoSrc: "/videos/F2A Video Testimonial 4.mp4",
+      location: "Africa",
     },
   ];
 
@@ -402,7 +408,7 @@ export default function Home() {
               Hear directly from those whose lives have been transformed
             </p>
 
-            <div className="grid md:grid-cols-3 gap-8 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
               {testimonials.map((testimonial, idx) => (
                 <Card
                   key={idx}
@@ -411,15 +417,19 @@ export default function Home() {
                       ? "border-brand-navy shadow-lg"
                       : "border-gray-200"
                   }`}
-                  onClick={() => setActiveTestimonial(idx)}
+                  onClick={() => {
+                    setActiveTestimonial(idx);
+                    setPlayingVideoIndex(idx);
+                  }}
                 >
-                  <div className="relative w-full h-48 bg-gray-200">
-                    <Image
-                      src={`https://img.youtube.com/vi/${testimonial.videoId}/mqdefault.jpg`}
-                      alt={testimonial.name}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                  <div className="relative w-full aspect-video bg-gray-200">
+                    <video
+                      src={testimonial.videoSrc}
+                      preload="metadata"
+                      muted
+                      playsInline
+                      className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+                      aria-hidden
                     />
                     <div className="absolute inset-0 flex items-center justify-center bg-black/30">
                       <Play className="w-14 h-14 text-white drop-shadow-md" fill="currentColor" />
@@ -434,7 +444,7 @@ export default function Home() {
                       <MapPin className="w-3.5 h-3.5" /> {testimonial.location}
                     </p>
                     <p className="text-gray-700 text-sm italic mb-4">
-                      "{testimonial.quote}"
+                      &ldquo;{testimonial.quote}&rdquo;
                     </p>
                     <Button
                       variant="link"
@@ -446,6 +456,23 @@ export default function Home() {
                 </Card>
               ))}
             </div>
+
+            <Dialog open={playingVideoIndex !== null} onOpenChange={(open) => !open && setPlayingVideoIndex(null)}>
+              <DialogContent className="max-w-4xl p-0 gap-0 overflow-hidden">
+                <DialogTitle className="sr-only">
+                  {playingVideoIndex !== null ? testimonials[playingVideoIndex].name : "Video"}
+                </DialogTitle>
+                {playingVideoIndex !== null && (
+                  <video
+                    src={testimonials[playingVideoIndex].videoSrc}
+                    controls
+                    autoPlay
+                    className="w-full aspect-video bg-black"
+                    aria-label={testimonials[playingVideoIndex].name}
+                  />
+                )}
+              </DialogContent>
+            </Dialog>
 
             <div className="flex items-center justify-center gap-3" role="tablist" aria-label="Testimonial carousel">
               <span className="legend-text">Stories</span>
