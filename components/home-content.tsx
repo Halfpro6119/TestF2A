@@ -91,27 +91,6 @@ export function HomeContent({
     { name: "Care Foundation", logo: "❤️" },
   ];
 
-  const donorTestimonials = [
-    {
-      name: "Sarah Johnson",
-      role: "Donor",
-      quote: "Seeing the direct impact of my donation makes me proud to support this mission.",
-      image: "👩‍💼",
-    },
-    {
-      name: "Michael Chen",
-      role: "Volunteer",
-      quote: "The team's dedication to dignity and compassion is truly inspiring.",
-      image: "👨‍💼",
-    },
-    {
-      name: "Emma Williams",
-      role: "Healthcare Professional",
-      quote: "This organization fills a critical gap in healthcare access across Africa.",
-      image: "👩‍⚕️",
-    },
-  ];
-
   const countriesServed = [
     { name: "South Africa", supplies: 12543, color: "bg-brand-navy" },
     { name: "Zimbabwe", supplies: 8234, color: "bg-brand-navy-light" },
@@ -476,31 +455,6 @@ export function HomeContent({
                 >
                   <Building2 className="w-10 h-10 text-brand-navy mx-auto mb-2" />
                   <p className="font-semibold text-gray-900 text-sm">{partner.name}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="widget-container bg-white p-6 md:p-8">
-            <h3 className="heading-display text-xl font-bold text-gray-900 mb-6 text-center leading-tight">
-              What Our Supporters Say
-            </h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              {donorTestimonials.map((testimonial, idx) => (
-                <div
-                  key={idx}
-                  className="p-6 border border-gray-200 rounded-lg transition-shadow duration-300 hover:shadow-md hover:border-gray-300"
-                >
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-full bg-brand-blue/20 flex items-center justify-center text-brand-navy font-bold text-sm shrink-0">
-                      {testimonial.name.split(" ").map(n => n[0]).join("")}
-                    </div>
-                    <div>
-                      <p className="font-bold text-gray-900 text-sm">{testimonial.name}</p>
-                      <p className="legend-text">{testimonial.role}</p>
-                    </div>
-                  </div>
-                  <p className="text-gray-700 text-sm italic">&quot;{testimonial.quote}&quot;</p>
                 </div>
               ))}
             </div>
