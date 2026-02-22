@@ -150,6 +150,17 @@
   @apply rounded-2xl sm:rounded-3xl border border-gray-200/80 shadow-md ring-1 ring-gray-200/50;
   background: linear-gradient(to bottom right, white, rgb(42 48 124 / 0.08), white);
 }
+@media (max-width: 1024px) {
+  .widget-container-hero {
+    background: var(--brand-navy);
+  }
+}
+/* CTA strip: solid navy on small devices to match hero background around logo/UK/Africa */
+@media (max-width: 1024px) {
+  .hero-cta-strip {
+    background: var(--brand-navy) !important;
+  }
+}
 .widget-container-news {
   @apply rounded-xl border border-gray-200 shadow-sm overflow-hidden;
   background: linear-gradient(to bottom right, rgb(42 48 124 / 0.08), white);
@@ -255,13 +266,13 @@
   }
 }
 
-/* Hero logo – glow and scale on hover */
+/* Hero logo – always left, always fully visible. Adequate margin from corner; scales to fill space. */
 .hero-logo-wrapper {
   position: absolute;
-  left: 5.8%;
-  top: 10%;
-  width: 38%;
-  height: 48%;
+  left: max(4%, 20px);
+  top: max(10%, 24px);
+  width: clamp(100px, 30%, 320px);
+  height: clamp(75px, 38%, 220px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -278,6 +289,8 @@
 .hero-logo-svg {
   width: 100%;
   height: 100%;
+  min-width: 0;
+  min-height: 0;
   object-fit: contain;
   pointer-events: none;
   transition: filter 0.35s ease-out;
@@ -286,6 +299,32 @@
 .hero-logo-wrapper:hover .hero-logo-svg {
   animation: none;
   filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.15));
+}
+
+/* Tablet: same alignment, larger to fill more space, moved up */
+@media (max-width: 1024px) {
+  .hero-logo-wrapper {
+    left: max(5%, 16px);
+    top: max(2%, 12px);
+    width: clamp(120px, 38%, 260px);
+    height: clamp(90px, 42%, 200px);
+  }
+}
+
+/* Mobile: larger to fill space, clear margin from top-left corner */
+@media (max-width: 640px) {
+  .hero-logo-wrapper {
+    left: max(6%, 12px);
+    top: max(6%, 16px);
+    width: min(42vw, 200px);
+    height: min(38vh, 160px);
+  }
+}
+/* Mobile: move logo up (phones and small tablets) */
+@media (max-width: 640px) {
+  .hero-logo-wrapper {
+    top: -6%;
+  }
 }
 @keyframes hero-logo-glow {
   0%, 100% {
@@ -301,7 +340,7 @@
 .hero-map-uk { animation: hero-map-float-up 8s ease-in-out infinite; }
 .hero-map-africa { animation: hero-map-float-down 8s ease-in-out infinite 0.5s; }
 
-/* UK & Africa – hover glow and scale (like logo) */
+/* UK & Africa – hover glow and scale; viewBox coords scale via preserveAspectRatio meet */
 .hero-map-uk-wrapper,
 .hero-map-africa-wrapper {
   cursor: pointer;
@@ -312,6 +351,42 @@
 .hero-map-africa-wrapper:hover {
   filter: url(#map-shadow-glow);
   transform: scale(1.05);
+}
+/* Tablet: shift UK, Africa, and flight path up and right */
+@media (max-width: 1024px) and (min-width: 641px) {
+  .hero-map-uk-wrapper {
+    transform: translate(5%, -12%);
+  }
+  .hero-map-uk-wrapper:hover {
+    transform: translate(5%, -12%) scale(1.05);
+  }
+  .hero-map-africa-wrapper {
+    transform: translate(5%, -12%);
+  }
+  .hero-map-africa-wrapper:hover {
+    transform: translate(5%, -12%) scale(1.05);
+  }
+  .hero-flight-path-wrapper {
+    transform: translate(5%, -12%);
+  }
+}
+/* Mobile: shift UK, Africa, and flight path further up and right (phones, small tablets) */
+@media (max-width: 640px) {
+  .hero-map-uk-wrapper {
+    transform: translate(10%, -28%);
+  }
+  .hero-map-uk-wrapper:hover {
+    transform: translate(10%, -28%) scale(1.05);
+  }
+  .hero-map-africa-wrapper {
+    transform: translate(10%, -28%);
+  }
+  .hero-map-africa-wrapper:hover {
+    transform: translate(10%, -28%) scale(1.05);
+  }
+  .hero-flight-path-wrapper {
+    transform: translate(10%, -28%);
+  }
 }
 
 /* Footprint stamp animation on UK/Africa hover – same image as logo */

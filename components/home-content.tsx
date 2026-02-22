@@ -103,7 +103,7 @@ export function HomeContent({
   const TOTAL_SUPPLIES = 31752;
 
   return (
-    <div className="min-h-screen bg-white overflow-hidden">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       <a href="#main" className="skip-link">
         Skip to content
       </a>
@@ -112,54 +112,56 @@ export function HomeContent({
       <main id="main">
       <section
         id="home"
-        className="pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24 px-4 sm:px-6 lg:px-8 bg-white relative"
+        className="pt-20 pb-12 sm:pt-28 sm:pb-16 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24 px-4 sm:px-6 lg:px-8 bg-white relative"
         aria-labelledby="hero-heading"
       >
         <div className="max-w-6xl mx-auto">
           {/* Visible headline + subline – anchors the narrative before the illustration */}
-          <div className="text-center mb-6 sm:mb-8">
-            <h1 id="hero-heading" className="heading-display text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-2 tracking-tight">
+          <div className="text-center mb-4 sm:mb-6 md:mb-8">
+            <h1 id="hero-heading" className="heading-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-2 tracking-tight leading-tight px-1">
               Restoring Dignity, Delivering Hope
             </h1>
-            <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
+            <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-1">
               Connecting UK surplus medical supplies with communities who need them across Africa.
             </p>
           </div>
 
-          <div className="widget-container-hero overflow-hidden relative">
-            <div className="relative aspect-[16/9] sm:aspect-[2.2/1] min-h-[260px] bg-brand-navy overflow-hidden">
+          <div className="widget-container-hero overflow-hidden relative mx-0 sm:mx-2">
+            <div className="relative aspect-[4/3] sm:aspect-[16/9] lg:aspect-[2.2/1] min-h-[200px] sm:min-h-[260px] bg-brand-navy overflow-hidden rounded-xl sm:rounded-2xl">
               <HeroIllustration className="absolute inset-0 w-full h-full object-cover object-center" />
               <span className="sr-only">
                 Footprints 2 Africa – Hope, Compassion, Dignity. Journey from the UK to Africa connecting surplus medical supplies with those who need them.
               </span>
-              {/* CTA strip – refined overlay: starts higher so it doesn't obscure continents */}
-              <div className="absolute bottom-0 left-0 right-0 h-32 sm:h-36 bg-gradient-to-t from-brand-navy via-brand-navy/90 to-transparent px-4 sm:px-6 py-4 sm:py-5 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-              <Button asChild variant="cta-hero" className="shrink-0">
-                <a href="#donate">
-                  Donate Now <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
-                </a>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                className="border-white bg-white/15 text-white font-semibold hover:bg-white/25 px-6 py-5 text-base min-h-[44px] shrink-0"
-              >
-                <a href="#about">How We Help</a>
-              </Button>
-              <p className="legend-text text-white/90 text-center sm:text-left mt-1 sm:mt-0 sm:ml-2">
-                UK Registered Charity No. 1214173
-              </p>
+              {/* CTA strip – solid navy on small devices to match hero bg; gradient on larger */}
+              <div className="hero-cta-strip absolute bottom-0 left-0 right-0 min-h-[120px] sm:min-h-[132px] bg-gradient-to-t from-brand-navy via-brand-navy/95 to-transparent px-4 sm:px-6 py-3 sm:py-5 flex flex-col items-center justify-end gap-2 sm:flex-row sm:items-center sm:justify-center sm:gap-4">
+                <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 w-full sm:w-auto">
+                  <Button asChild variant="cta-hero" className="w-full sm:w-auto shrink-0 text-sm sm:text-base px-5 py-4 sm:px-6 sm:py-5 min-h-[44px]">
+                    <a href="#donate" className="flex items-center justify-center">
+                      Donate Now <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+                    </a>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="w-full sm:w-auto border-white bg-white/15 text-white font-semibold hover:bg-white/25 px-5 py-4 sm:px-6 sm:py-5 text-sm sm:text-base min-h-[44px] shrink-0"
+                  >
+                    <a href="#about">How We Help</a>
+                  </Button>
+                </div>
+                <p className="legend-text text-white/90 text-center text-[10px] sm:text-xs">
+                  UK Registered Charity No. 1214173
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="widget-container-gradient p-6 md:p-8">
-            <p className="legend-text text-center mb-6">Live impact</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="widget-container-gradient p-4 sm:p-6 md:p-8">
+            <p className="legend-text text-center mb-4 sm:mb-6">Live impact</p>
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
               {[
                 { value: TOTAL_SUPPLIES, label: "Supplies Delivered", Icon: Package, suffix: "", featured: true },
                 { value: 921.5, label: "Saved from Landfill", Icon: Recycle, suffix: "kg", featured: false },
@@ -170,7 +172,7 @@ export function HomeContent({
                 return (
                   <div
                     key={idx}
-                    className={`p-6 text-center rounded-lg border transition-colors transition-shadow duration-300 cursor-default group ${
+                    className={`p-4 sm:p-6 text-center rounded-lg border transition-colors transition-shadow duration-300 cursor-default group ${
                       metric.featured
                         ? "border-brand-green/40 bg-brand-green-light/30 hover:border-brand-green/40 hover:bg-brand-green-light/40"
                         : "border-gray-200 bg-white/50 hover:border-brand-blue/30 hover:bg-brand-blue/5"
@@ -179,7 +181,7 @@ export function HomeContent({
                     <div className="flex justify-center mb-3">
                       <IconComponent className="w-10 h-10 text-brand-navy" />
                     </div>
-                    <p className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-brand-navy to-brand-blue bg-clip-text text-transparent mb-2">
+                    <p className="text-2xl sm:text-3xl lg:text-5xl font-bold bg-gradient-to-r from-brand-navy to-brand-blue bg-clip-text text-transparent mb-2 break-words">
                       {countersStarted ? (
                         <>
                           <CountUp
@@ -205,17 +207,17 @@ export function HomeContent({
         </div>
       </section>
 
-      <section id="about" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-brand-grey">
+      <section id="about" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-brand-grey">
         <div className="max-w-4xl mx-auto">
-          <div className="widget-container bg-white p-8 md:p-10">
-            <h2 className="heading-display text-4xl font-bold text-gray-900 mb-2 text-center leading-tight">
+          <div className="widget-container bg-white p-6 sm:p-8 md:p-10">
+            <h2 className="heading-display text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 text-center leading-tight">
               Our Purpose & Vision
             </h2>
             <p className="legend-text text-center mb-10">One mission: dignity and hope for ostomates across Africa.</p>
 
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div className="p-6 rounded-lg border border-gray-200 transition-shadow duration-300 hover:shadow-md hover:border-brand-blue/20">
-                <h3 className="heading-display text-2xl font-bold text-gray-900 mb-4 leading-tight">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-8">
+              <div className="p-5 sm:p-6 rounded-lg border border-gray-200 transition-shadow duration-300 hover:shadow-md hover:border-brand-blue/20">
+                <h3 className="heading-display text-xl sm:text-2xl font-bold text-gray-900 mb-4 leading-tight">
                   Our Purpose
                 </h3>
                 <p className="text-gray-700 text-sm leading-relaxed">
@@ -225,8 +227,8 @@ export function HomeContent({
                 </p>
               </div>
 
-              <div className="p-6 rounded-lg border border-gray-200 transition-shadow duration-300 hover:shadow-md hover:border-brand-blue/20">
-                <h3 className="heading-display text-2xl font-bold text-gray-900 mb-4 leading-tight">
+              <div className="p-5 sm:p-6 rounded-lg border border-gray-200 transition-shadow duration-300 hover:shadow-md hover:border-brand-blue/20">
+                <h3 className="heading-display text-xl sm:text-2xl font-bold text-gray-900 mb-4 leading-tight">
                   Our Vision
                 </h3>
                 <p className="text-gray-700 text-sm leading-relaxed">
@@ -237,8 +239,8 @@ export function HomeContent({
               </div>
             </div>
 
-            <div className="p-6 rounded-lg border border-gray-200 border-l-4 border-l-brand-navy bg-brand-blue/10 transition-shadow duration-300 hover:shadow-md">
-              <h3 className="heading-display text-2xl font-bold text-gray-900 mb-4 leading-tight">
+            <div className="p-5 sm:p-6 rounded-lg border border-gray-200 border-l-4 border-l-brand-navy bg-brand-blue/10 transition-shadow duration-300 hover:shadow-md">
+              <h3 className="heading-display text-xl sm:text-2xl font-bold text-gray-900 mb-4 leading-tight">
                 Why It Matters
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed">
@@ -251,17 +253,17 @@ export function HomeContent({
         </div>
       </section>
 
-      <section id="impact" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section id="impact" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="widget-container rounded-xl border border-gray-200 bg-gradient-to-br from-white to-brand-grey/50 p-6 md:p-8">
-            <h2 className="heading-display text-4xl font-bold text-gray-900 mb-2 text-center leading-tight">
+          <div className="widget-container rounded-xl border border-gray-200 bg-gradient-to-br from-white to-brand-grey/50 p-4 sm:p-6 md:p-8">
+            <h2 className="heading-display text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 text-center leading-tight">
               Stories of Change
             </h2>
-            <p className="legend-text-sm text-center mb-10">
+            <p className="legend-text-sm text-center mb-6 sm:mb-10">
               Hear directly from those whose lives have been transformed
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-6 sm:mb-8">
               {testimonials.map((testimonial, idx) => (
                 <Card
                   key={testimonial.id}
@@ -289,8 +291,8 @@ export function HomeContent({
                     </div>
                   </div>
 
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  <div className="p-4 sm:p-6">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
                       {testimonial.name}
                     </h3>
                     <p className="legend-text-sm mb-3 flex items-center gap-1 text-brand-navy">
@@ -311,7 +313,7 @@ export function HomeContent({
             </div>
 
             <Dialog open={playingVideoIndex !== null} onOpenChange={(open) => !open && setPlayingVideoIndex(null)}>
-              <DialogContent className="max-w-4xl p-0 gap-0 overflow-hidden">
+              <DialogContent className="max-w-[min(100vw-2rem,56rem)] p-0 gap-0 overflow-hidden">
                 <DialogTitle className="sr-only">
                   {playingVideoIndex !== null && testimonials[playingVideoIndex]
                     ? testimonials[playingVideoIndex].name
@@ -329,9 +331,9 @@ export function HomeContent({
               </DialogContent>
             </Dialog>
 
-            <div className="flex items-center justify-center gap-3" role="tablist" aria-label="Testimonial carousel">
-              <span className="legend-text">Stories</span>
-              <div className="flex gap-2">
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 py-4" role="tablist" aria-label="Testimonial carousel">
+              <span className="legend-text w-full sm:w-auto text-center sm:text-left">Stories</span>
+              <div className="flex gap-2 flex-wrap justify-center">
                 {testimonials.map((_, idx) => (
                   <button
                     key={idx}
@@ -350,11 +352,11 @@ export function HomeContent({
               <span className="legend-text">{activeTestimonial + 1} of {testimonials.length}</span>
             </div>
 
-            <div className="mt-12 pt-10 border-t border-gray-200">
-              <h3 className="heading-display text-2xl font-bold text-gray-900 mb-6 text-center leading-tight">
+            <div className="mt-8 sm:mt-12 pt-8 sm:pt-10 border-t border-gray-200">
+              <h3 className="heading-display text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 text-center leading-tight">
                 Impact Stories
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-6 sm:mb-8">
                 {impactArticles.slice(0, 4).map((article) => (
                   <Link key={article.id} href={`/impact/${article.slug}`}>
                     <Card className="overflow-hidden transition-shadow duration-300 cursor-pointer border-2 hover:shadow-lg hover:border-brand-blue/30 border-gray-200 h-full flex flex-col">
@@ -371,8 +373,8 @@ export function HomeContent({
                           <FileText className="w-14 h-14 text-brand-navy" />
                         )}
                       </div>
-                      <div className="p-6 flex-1 flex flex-col">
-                        <h4 className="text-xl font-bold text-gray-900 mb-2">
+                      <div className="p-4 sm:p-6 flex-1 flex flex-col">
+                        <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
                           {article.title}
                         </h4>
                         <p className="legend-text-sm mb-3 flex items-center gap-1 text-brand-navy">
@@ -406,14 +408,14 @@ export function HomeContent({
         </div>
       </section>
 
-      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-brand-grey">
-        <div className="max-w-6xl mx-auto space-y-8">
-          <h2 className="heading-display text-4xl font-bold text-gray-900 text-center leading-tight">
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-brand-grey">
+        <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8">
+          <h2 className="heading-display text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 text-center leading-tight">
             Trusted by Partners & Supporters
           </h2>
 
-          <div className="widget-container bg-white p-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="widget-container bg-white p-4 sm:p-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
               {[
                 { Icon: BadgeCheck, title: "Charity Verified", desc: "UK Registered Charity No. 1214173", href: "https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1214173" },
                 { Icon: Lock, title: "Secure Donations", desc: "100% of donations go to supplies" },
@@ -430,7 +432,7 @@ export function HomeContent({
                   </div>
                 );
                 return (
-                  <div key={idx} className="md:border-r border-gray-200 md:last:border-r-0 md:pr-8 md:last:pr-0">
+                  <div key={idx} className="py-4 md:py-0 md:border-r border-gray-200 md:last:border-r-0 md:pr-8 md:last:pr-0 border-b border-gray-200 last:border-b-0 md:border-b-0 md:last:border-b-0">
                     {badge.href ? (
                       <a href={badge.href} target="_blank" rel="noopener noreferrer" className="block focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2 rounded-md outline-none hover:opacity-90 transition-opacity">
                         {content}
@@ -444,11 +446,11 @@ export function HomeContent({
             </div>
           </div>
 
-          <div className="widget-container bg-white p-6 md:p-8">
-            <h3 className="heading-display text-xl font-bold text-gray-900 mb-6 text-center leading-tight">
+          <div className="widget-container bg-white p-4 sm:p-6 md:p-8">
+            <h3 className="heading-display text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 text-center leading-tight">
               Our Partners
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
               {partners.map((partner, idx) => (
                 <div
                   key={idx}
@@ -463,17 +465,17 @@ export function HomeContent({
         </div>
       </section>
 
-      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="heading-display text-4xl font-bold text-gray-900 mb-2 text-center leading-tight">
+          <h2 className="heading-display text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 text-center leading-tight">
             Our Geographic Impact
           </h2>
-          <p className="legend-text-sm text-center mb-10">
+          <p className="legend-text-sm text-center mb-6 sm:mb-10">
             Supplies delivered across Southern Africa
           </p>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="bg-gradient-to-br from-brand-green-light/30 to-white rounded-xl p-6 border border-gray-200 ring-1 ring-gray-200/50 overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="bg-gradient-to-br from-brand-green-light/30 to-white rounded-xl p-4 sm:p-6 border border-gray-200 ring-1 ring-gray-200/50 overflow-hidden min-h-0">
               <ImpactMap className="w-full" />
               <p className="text-center legend-text-sm mt-4">
                 {TOTAL_SUPPLIES.toLocaleString()}+ supplies delivered across 5 countries
@@ -511,16 +513,16 @@ export function HomeContent({
 
       <section
         ref={howItWorksRef}
-        className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-brand-grey"
+        className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-brand-grey"
       >
         <div className="max-w-6xl mx-auto">
-          <div className="widget-container bg-white p-8">
-            <h2 className="heading-display text-4xl font-bold text-gray-900 mb-2 text-center leading-tight">
+          <div className="widget-container bg-white p-6 sm:p-8">
+            <h2 className="heading-display text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 text-center leading-tight">
               How It Works
             </h2>
             <p className="legend-text text-center mb-10">From UK collection to African distribution</p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 relative">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-6 relative">
               <div
                 className="hidden lg:block absolute top-8 left-0 right-0 z-0 h-0.5 overflow-visible"
                 style={{ marginLeft: "12.5%", marginRight: "12.5%" }}
@@ -581,17 +583,17 @@ export function HomeContent({
 
       <DonateSection />
 
-      <section id="get-involved" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section id="get-involved" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="heading-display text-4xl font-bold text-gray-900 mb-2 text-center leading-tight">
+          <h2 className="heading-display text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 text-center leading-tight">
             Get Involved
           </h2>
           <p className="legend-text-sm text-center mb-10">
             Choose how you&apos;d like to make a difference. Every contribution restores dignity and hope.
           </p>
 
-          <div className="widget-container-gradient p-8 mb-8">
-            <div className="grid md:grid-cols-2 gap-8">
+          <div className="widget-container-gradient p-6 sm:p-8 mb-6 sm:mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               <div className="p-6 rounded-xl border border-gray-200 bg-white/80 transition-shadow duration-300 hover:shadow-md hover:border-brand-navy/40">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 bg-brand-blue/20 rounded-lg flex items-center justify-center">
@@ -642,13 +644,13 @@ export function HomeContent({
         </div>
       </section>
 
-      <section id="contact" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-brand-grey">
-        <div className="max-w-4xl mx-auto space-y-8">
-          <h2 className="heading-display text-4xl font-bold text-gray-900 mb-2 text-center leading-tight">
+      <section id="contact" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-brand-grey">
+        <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
+          <h2 className="heading-display text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 text-center leading-tight">
             Get In Touch
           </h2>
 
-          <div className="widget-container bg-white p-8">
+          <div className="widget-container bg-white p-6 sm:p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {[
                 { icon: Mail, label: "Email", value: "sam@footprints2africa.org.uk", href: "mailto:sam@footprints2africa.org.uk" },
@@ -684,11 +686,11 @@ export function HomeContent({
           </div>
 
           <div className="widget-container rounded-xl border border-gray-200 overflow-hidden">
-            <div className="p-8 bg-brand-navy">
-              <h3 className="text-2xl font-bold text-white mb-6 leading-tight">
+            <div className="p-6 sm:p-8 bg-brand-navy">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6 leading-tight">
                 Trust & Governance
               </h3>
-              <div className="grid md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
                 {[
                   { title: "Charity Registration", desc: "UK Registered Charity No. 1214173" },
                   { title: "Volunteer Leadership", desc: "100% volunteer-led organization" },
@@ -708,9 +710,9 @@ export function HomeContent({
         </div>
       </section>
 
-      <footer className="bg-brand-navy text-white py-12 px-4 sm:px-6 lg:px-8">
+      <footer className="bg-brand-navy text-white py-10 sm:py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="mb-10">
+          <div className="mb-8 sm:mb-10">
             <h3 className="text-base font-bold uppercase tracking-wide mb-4 text-white/95">
               Site Map
             </h3>
@@ -787,7 +789,7 @@ export function HomeContent({
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
             <div>
               <h3 className="text-sm font-bold mb-4 text-gray-200">
                 Footprints 2 Africa

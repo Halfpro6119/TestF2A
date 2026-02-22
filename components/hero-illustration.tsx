@@ -72,7 +72,7 @@ export function HeroIllustration({ className }: { className?: string }) {
         viewBox="0 0 1200 540"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="xMidYMid slice"
+        preserveAspectRatio="xMidYMid meet"
         aria-hidden
       >
         <defs>
@@ -150,19 +150,18 @@ export function HeroIllustration({ className }: { className?: string }) {
           </g>
         </g>
 
-        {/* Dashed flight path: London → first arc → seamless mirrored second arc → Africa */}
-        <path
-          d="M 668 242 Q 820 180 820 250 Q 820 320 980 288"
-          fill="none"
-          stroke="url(#flight-path)"
-          strokeWidth="2.5"
-          strokeDasharray="10 8"
-          strokeLinecap="round"
-          className="hero-path-line"
-        />
-
-        {/* Airplane – cleaner silhouette along path, facing right and slightly up */}
-        <g className="hero-plane">
+        {/* Dashed flight path + plane – move with UK/Africa on smaller devices */}
+        <g className="hero-flight-path-wrapper">
+          <path
+            d="M 668 242 Q 820 180 820 250 Q 820 320 980 288"
+            fill="none"
+            stroke="url(#flight-path)"
+            strokeWidth="2.5"
+            strokeDasharray="10 8"
+            strokeLinecap="round"
+            className="hero-path-line"
+          />
+          <g className="hero-plane">
           <path
             d="M 0 -6 L 18 0 L 0 6 L 4 0 Z M 14 -2 L 22 0 L 14 2 Z"
             fill="white"
@@ -176,6 +175,7 @@ export function HeroIllustration({ className }: { className?: string }) {
               rotate="auto"
             />
           </path>
+          </g>
         </g>
 
         {/* Foreground – irregular amorphous shape (distant land/shoreline); soft navy for cohesion */}

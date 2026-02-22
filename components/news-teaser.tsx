@@ -19,13 +19,13 @@ export async function NewsTeaser() {
       aria-labelledby="news-heading"
     >
       <div className="max-w-6xl mx-auto">
-        <div className="flex items-start gap-3 mb-10">
+        <div className="flex items-start gap-3 mb-6 sm:mb-10">
           <div className="flex-shrink-0 w-1 h-12 bg-brand-navy rounded-full" aria-hidden />
           <div className="flex-1">
             <p className="legend-text mb-1">News & Updates</p>
             <h2
               id="news-heading"
-              className="heading-display text-4xl font-bold text-gray-900 mb-2 leading-tight"
+              className="heading-display text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 leading-tight"
             >
               Latest News
             </h2>
@@ -35,7 +35,7 @@ export async function NewsTeaser() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-6 sm:mb-10">
           <div className="sm:col-span-2">
             <NewsArticleCard article={featuredArticle} featured />
           </div>

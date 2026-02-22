@@ -38,25 +38,26 @@ export function SiteNav() {
     <nav
       className={`fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-brand-blue/20 transition-shadow duration-300 ${scrollY > 20 ? "shadow-sm" : ""}`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4 flex items-center justify-between gap-2">
         <Link
           href="/"
           className="flex items-center gap-3 group cursor-pointer transition-all duration-300 hover:opacity-80"
         >
-          <div className="relative w-12 h-12 transition-transform duration-300">
+          <div className="relative w-9 h-9 sm:w-11 sm:h-11 md:w-12 md:h-12 lg:w-14 lg:h-14 shrink-0 transition-transform duration-300">
             <Image
               src="/logo.png"
               alt="Footprints 2 Africa Logo"
-              width={48}
-              height={48}
-              className="transition-all duration-300"
+              width={56}
+              height={56}
+              className="w-full h-full object-contain transition-all duration-300"
+              sizes="(max-width: 640px) 36px, (max-width: 768px) 44px, (max-width: 1024px) 48px, 56px"
             />
           </div>
-          <div className="transition-colors duration-300">
-            <span className="text-lg font-bold text-gray-900 transition-colors duration-300 group-hover:text-brand-navy block">
+          <div className="transition-colors duration-300 min-w-0">
+            <span className="text-base sm:text-lg font-bold text-gray-900 transition-colors duration-300 group-hover:text-brand-navy block truncate">
               Footprints 2 Africa
             </span>
-            <p className="text-xs text-gray-600 transition-colors duration-300 group-hover:text-brand-navy">
+            <p className="text-[10px] sm:text-xs text-gray-600 transition-colors duration-300 group-hover:text-brand-navy hidden sm:block">
               Restoring Dignity
             </p>
           </div>
@@ -106,7 +107,7 @@ export function SiteNav() {
             onClick={() => setIsMenuOpen(false)}
             aria-label="Close menu"
           />
-          <div className="md:hidden fixed top-[65px] left-4 right-4 bg-white border border-gray-200 border-t-0 rounded-b-xl shadow-lg z-50 animate-in fade-in slide-in-from-top-2 duration-300">
+          <div className="md:hidden fixed top-[57px] sm:top-[65px] left-2 right-2 sm:left-4 sm:right-4 bg-white border border-gray-200 rounded-b-xl shadow-lg z-50 animate-in fade-in slide-in-from-top-2 duration-300 max-h-[calc(100vh-60px)] overflow-y-auto">
             <div className="px-4 py-4 space-y-3">
               {navItems.map((item) => (
                 <Link

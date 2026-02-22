@@ -11,10 +11,11 @@ export function HeroLogo() {
       aria-hidden
     >
       <svg
-        viewBox="-250 -180 900 650"
+        viewBox="-480 -320 1400 780"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="hero-logo-svg"
+        preserveAspectRatio="xMidYMid meet"
       >
         <defs>
           <clipPath id="hero-logo-semicircle-clip">

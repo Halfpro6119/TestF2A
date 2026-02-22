@@ -140,7 +140,7 @@ export function DonateSection() {
               Change amount
             </label>
             <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
-              <div className="relative flex-1 max-w-[200px]">
+              <div className="relative flex-1 w-full sm:max-w-[200px]">
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 font-medium">
                   £
                 </span>
@@ -159,7 +159,7 @@ export function DonateSection() {
 
           {/* Main CTA + payment methods */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 flex-wrap">
-            <div className="flex flex-wrap items-center gap-3 text-gray-500 text-xs">
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3 text-gray-500 text-xs order-2 sm:order-1">
               {PAYMENT_METHODS.map((method) => (
                 <span
                   key={method.name}
@@ -169,7 +169,7 @@ export function DonateSection() {
                 </span>
               ))}
             </div>
-            <Button variant="cta" size="cta-lg" className="shrink-0 ml-auto" asChild>
+            <Button variant="cta" size="cta-lg" className="shrink-0 w-full sm:w-auto order-1 sm:order-2 sm:ml-auto" asChild>
               <a
                 href="#"
                 className="inline-flex items-center gap-2"
