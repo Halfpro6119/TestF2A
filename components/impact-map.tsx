@@ -9,21 +9,58 @@ import {
   ZoomableGroup,
 } from "react-simple-maps";
 
-// Southern Africa countries to display - served countries + neighbors (grey)
-const SOUTHERN_AFRICA_COUNTRIES = new Set([
-  "South Africa",
-  "Zimbabwe",
-  "Botswana",
-  "Namibia",
-  "Lesotho",
-  "Mozambique",
-  "Zambia",
+// All African countries (world-atlas 110m names) - full continent north to south
+const AFRICA_COUNTRIES = new Set([
+  "Algeria",
   "Angola",
-  "eSwatini",
-  "Malawi",
-  "Madagascar",
+  "Benin",
+  "Botswana",
+  "Burkina Faso",
+  "Burundi",
+  "Cameroon",
+  "Central African Rep.",
+  "Chad",
+  "Congo",
+  "Côte d'Ivoire",
   "Dem. Rep. Congo",
+  "Djibouti",
+  "Egypt",
+  "Eq. Guinea",
+  "Eritrea",
+  "eSwatini",
+  "Ethiopia",
+  "Gabon",
+  "Gambia",
+  "Ghana",
+  "Guinea",
+  "Guinea-Bissau",
+  "Kenya",
+  "Lesotho",
+  "Liberia",
+  "Libya",
+  "Madagascar",
+  "Malawi",
+  "Mali",
+  "Mauritania",
+  "Morocco",
+  "Mozambique",
+  "Namibia",
+  "Niger",
+  "Nigeria",
+  "Rwanda",
+  "Senegal",
+  "Sierra Leone",
+  "Somalia",
+  "South Africa",
+  "S. Sudan",
+  "Sudan",
   "Tanzania",
+  "Togo",
+  "Tunisia",
+  "Uganda",
+  "W. Sahara",
+  "Zambia",
+  "Zimbabwe",
 ]);
 
 // Supply data - more supplies = greener to navy (hero palette)
@@ -66,7 +103,7 @@ export function ImpactMap({ className = "" }: ImpactMapProps) {
       return (features ?? []).filter(
         (f): f is Feature => {
           const name = (f?.properties as { name?: string } | undefined)?.name;
-          return typeof name === "string" && SOUTHERN_AFRICA_COUNTRIES.has(name);
+          return typeof name === "string" && AFRICA_COUNTRIES.has(name);
         }
       );
     },
@@ -78,13 +115,13 @@ export function ImpactMap({ className = "" }: ImpactMapProps) {
       <ComposableMap
         projection="geoMercator"
         projectionConfig={{
-          center: [24, -22],
-          scale: 900,
+          center: [20, 0],
+          scale: 420,
         }}
         className="w-full h-full min-h-[320px]"
         style={{ width: "100%", height: "auto" }}
       >
-        <ZoomableGroup center={[24, -22]} zoom={1} minZoom={0.8} maxZoom={3}>
+        <ZoomableGroup center={[20, 0]} zoom={1} minZoom={0.6} maxZoom={4}>
           <Geographies geography={GEO_URL} parseGeographies={parseGeographies}>
             {({ geographies }) =>
               geographies.map((geo) => {
