@@ -11,7 +11,7 @@ export function HeroLogo() {
       aria-hidden
     >
       <svg
-        viewBox="-140 -90 660 360"
+        viewBox="-250 -180 900 650"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="hero-logo-svg"
@@ -21,7 +21,7 @@ export function HeroLogo() {
             <path d="M 20 132 A 180 180 0 0 1 360 132 Z" />
           </clipPath>
         </defs>
-        <g transform="translate(190, 70.5) scale(1.35) translate(-190, -70.5)">
+        <g transform="translate(190, 70.5) scale(3) translate(-190, -70.5)">
           <path
             d="M 20 132 A 180 180 0 0 1 360 132 Z"
             fill="white"
@@ -35,17 +35,14 @@ export function HeroLogo() {
           <path d="M 185 94 L 195 94 M 190 86 L 190 102" stroke="white" strokeWidth="1.8" strokeLinecap="round" />
           <text x="45" y="125" fontSize="9" fill="#4a4a4a" fontFamily="system-ui, sans-serif" fontWeight="500" letterSpacing="1">EST.</text>
           <text x="335" y="125" fontSize="9" fill="#4a4a4a" fontFamily="system-ui, sans-serif" fontWeight="500" letterSpacing="1" textAnchor="end">2025</text>
-          <line x1="-20" y1="132" x2="400" y2="132" stroke="white" strokeWidth="1.2" />
-          <line x1="45" y1="170" x2="335" y2="170" stroke="white" strokeWidth="1" />
+          <line x1="-20" y1="132" x2="400" y2="132" stroke="white" strokeWidth="2.5" />
+          <line x1="45" y1="170" x2="335" y2="170" stroke="white" strokeWidth="2.5" />
           <text x="190" y="151" fontSize="15" fontWeight="bold" fill="white" fontFamily="Georgia, 'Times New Roman', serif" textAnchor="middle" dominantBaseline="middle" letterSpacing="1.2">
             FOOTPRINTS 2 AFRICA
           </text>
-          <text x="190" y="184" fontSize="9" fontWeight="400" fill="white" fontFamily="Georgia, 'Times New Roman', serif" textAnchor="middle" letterSpacing="0.8">
+          <text x="190" y="184" fontSize="11" fontWeight="500" fill="white" stroke="rgba(0,0,0,0.3)" strokeWidth="0.5" paintOrder="stroke" fontFamily="Georgia, 'Times New Roman', serif" textAnchor="middle" letterSpacing="0.8">
             Hope • Compassion • Dignity
           </text>
-        </g>
-        <g transform="translate(190, 70.5) scale(1.35) translate(-190, -70.5)">
-          <rect x="-36" y="-48" width="452" height="252" rx="14" fill="none" stroke="white" strokeWidth="2.5" strokeOpacity="0.5" strokeLinejoin="round" />
         </g>
       </svg>
     </div>
