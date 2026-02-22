@@ -269,6 +269,7 @@
   transform-origin: center;
   border-radius: 14px;
   outline: none;
+  overflow: visible;
   transition: transform 0.35s ease-out, filter 0.35s ease-out;
 }
 .hero-logo-wrapper:hover {

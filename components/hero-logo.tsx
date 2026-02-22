@@ -11,7 +11,7 @@ export function HeroLogo() {
       aria-hidden
     >
       <svg
-        viewBox="-40 -10 460 230"
+        viewBox="-140 -90 660 360"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="hero-logo-svg"
@@ -21,8 +21,7 @@ export function HeroLogo() {
             <path d="M 20 132 A 180 180 0 0 1 360 132 Z" />
           </clipPath>
         </defs>
-        <g>
-          <rect x="-36" y="4" width="452" height="204" rx="14" fill="none" stroke="white" strokeWidth="2.5" strokeOpacity="0.5" />
+        <g transform="translate(190, 70.5) scale(1.35) translate(-190, -70.5)">
           <path
             d="M 20 132 A 180 180 0 0 1 360 132 Z"
             fill="white"
@@ -44,6 +43,9 @@ export function HeroLogo() {
           <text x="190" y="184" fontSize="9" fontWeight="400" fill="white" fontFamily="Georgia, 'Times New Roman', serif" textAnchor="middle" letterSpacing="0.8">
             Hope • Compassion • Dignity
           </text>
+        </g>
+        <g transform="translate(190, 70.5) scale(1.35) translate(-190, -70.5)">
+          <rect x="-36" y="-48" width="452" height="252" rx="14" fill="none" stroke="white" strokeWidth="2.5" strokeOpacity="0.5" strokeLinejoin="round" />
         </g>
       </svg>
     </div>
