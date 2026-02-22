@@ -30,17 +30,28 @@ export function useScrollReveal(threshold = 0.15) {
   return { ref, revealed };
 }
 
+export interface UseScrollProgressOptions {
+  /** Viewport fraction (0–1) where progress reaches 1. E.g. 0.4 = fully revealed when section top is 40% down. Default 0. */
+  progressReachAt?: number;
+  /** When set, progress reaches 1 when section bottom reaches this viewport fraction. E.g. 0.5 = timeline full when bottom is at 50% viewport (next section visible). */
+  progressReachWhenBottomAt?: number;
+}
+
 /**
  * Returns scroll progress (0–1) for a section, similar to How It Works on home.
  * Progress increases as the section scrolls into view.
- * @param progressReachAt - Viewport fraction (0–1) where progress reaches 1 (default 0).
- *   E.g. 0.4 = fully revealed when section top is 40% down the viewport (still visible).
- *   Use for sections with content below (e.g. a CTA button) so the timeline is fully
- *   visible by the time the user scrolls to the button.
  */
-export function useScrollProgress(progressReachAt = 0) {
+export function useScrollProgress(
+  progressReachAtOrOptions: number | UseScrollProgressOptions = 0
+) {
   const ref = useRef<HTMLElement>(null);
   const [progress, setProgress] = useState(0);
+
+  const options =
+    typeof progressReachAtOrOptions === "object"
+      ? progressReachAtOrOptions
+      : { progressReachAt: progressReachAtOrOptions };
+  const { progressReachAt = 0, progressReachWhenBottomAt } = options;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,9 +60,18 @@ export function useScrollProgress(progressReachAt = 0) {
 
       const rect = section.getBoundingClientRect();
       const vh = window.innerHeight;
-      // Progress = 1 when rect.top <= vh * progressReachAt (section still in view)
-      const denom = vh * (1 - progressReachAt);
-      const raw = denom > 0 ? (vh - rect.top) / denom : 1;
+
+      let raw: number;
+      if (progressReachWhenBottomAt != null) {
+        // Progress = 1 when rect.bottom <= vh * progressReachWhenBottomAt (next section visible)
+        const targetTop = vh * progressReachWhenBottomAt - rect.height;
+        const denom = vh - targetTop;
+        raw = denom > 0 ? (vh - rect.top) / denom : 1;
+      } else {
+        const denom = vh * (1 - progressReachAt);
+        raw = denom > 0 ? (vh - rect.top) / denom : 1;
+      }
+
       const p = Math.min(1, Math.max(0, raw));
       setProgress(p);
     };
@@ -59,7 +79,7 @@ export function useScrollProgress(progressReachAt = 0) {
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [progressReachAt]);
+  }, [progressReachAt, progressReachWhenBottomAt]);
 
   return { ref, progress };
 }

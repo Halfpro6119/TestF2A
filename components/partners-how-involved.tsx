@@ -20,6 +20,7 @@ export function PartnersHowInvolved() {
         Icon,
       }))}
       showProgressLine={true}
+      progressReachWhenBottomAt={0.65}
     />
   );
 }
