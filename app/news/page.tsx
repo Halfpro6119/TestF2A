@@ -1,10 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight, Newspaper } from "lucide-react";
+import { ArrowRight, Newspaper } from "lucide-react";
 import { getArticles } from "@/lib/news";
 import { NewsArticleCard } from "@/components/news-article-card";
 import { Button } from "@/components/ui/button";
 import { LikeCountBadge } from "@/components/news/like-count-badge";
+import { PageHero } from "@/components/page-hero";
+import { ScrollRevealSection } from "@/components/scroll-reveal-section";
 
 export const dynamic = "force-dynamic";
 
@@ -15,28 +17,18 @@ export default async function NewsPage() {
 
   return (
     <main id="main">
-      <section className="pt-28 pb-16 sm:pt-32 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-brand-grey">
+      <section className="px-4 sm:px-6 lg:px-8 bg-brand-grey">
         <div className="max-w-6xl mx-auto">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-brand-navy hover:text-brand-navy-light transition-colors duration-300 mb-8 text-sm font-medium focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2 rounded"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to home
-          </Link>
-
-          <div className="widget-container-news p-6 md:p-8 mb-10">
-            <p className="legend-text mb-2">News & Updates</p>
-            <h1 className="heading-display text-4xl font-bold text-gray-900 mb-2 leading-tight">
-              Latest News
-            </h1>
-            <p className="legend-text-sm max-w-2xl">
-              Stay up to date with the latest updates, announcements, and stories
-              from Footprints 2 Africa.
-            </p>
-          </div>
+          <PageHero
+            backHref="/"
+            backLabel="Back to home"
+            heading="Latest News"
+            description="Stay up to date with the latest updates, announcements, and stories from Footprints 2 Africa."
+            legend="News & Updates"
+          />
 
           {articles.length === 0 ? (
+            <ScrollRevealSection>
             <div className="widget-container bg-white p-12 md:p-16 text-center">
               <Newspaper className="w-16 h-16 text-brand-navy mx-auto mb-6 opacity-60" />
               <h2 className="heading-display text-2xl font-bold text-gray-900 mb-3">
@@ -46,15 +38,17 @@ export default async function NewsPage() {
                 Check back soon for updates, announcements, and stories from our mission.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild variant="outline">
+                <Button asChild variant="brand-outline">
                   <Link href="/">Return home</Link>
                 </Button>
-                <Button asChild className="bg-brand-navy hover:bg-brand-navy-light text-white">
+                <Button asChild variant="brand">
                   <Link href="/impact">Explore impact stories</Link>
                 </Button>
               </div>
             </div>
+            </ScrollRevealSection>
           ) : (
+            <ScrollRevealSection>
             <>
               {featuredArticle && (
                 <Link
@@ -115,6 +109,7 @@ export default async function NewsPage() {
                 ))}
               </div>
             </>
+            </ScrollRevealSection>
           )}
         </div>
       </section>

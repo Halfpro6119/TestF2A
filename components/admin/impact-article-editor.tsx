@@ -312,11 +312,7 @@ export function ImpactArticleEditor({
             )}
 
             <div className="flex gap-3">
-              <Button
-                type="submit"
-                className="bg-brand-navy hover:bg-brand-navy-light"
-                disabled={loading}
-              >
+              <Button type="submit" variant="brand" disabled={loading}>
                 {loading
                   ? "Saving..."
                   : mode === "create"

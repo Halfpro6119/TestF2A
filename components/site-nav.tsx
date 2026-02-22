@@ -77,7 +77,8 @@ export function SiteNav() {
 
         <Button
           asChild
-          className="hidden sm:flex bg-brand-red hover:bg-brand-red-hover text-white min-h-[44px] min-w-[44px] transition-colors duration-300 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
+          variant="cta"
+          className="hidden sm:flex min-w-[44px]"
         >
           <Link href="/#donate">Donate</Link>
         </Button>
@@ -117,10 +118,7 @@ export function SiteNav() {
                   {item.label}
                 </Link>
               ))}
-              <Button
-                asChild
-                className="w-full bg-brand-red hover:bg-brand-red-hover text-white min-h-[44px] transition-colors duration-300 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
-              >
+              <Button asChild variant="cta" className="w-full">
                 <Link href="/#donate" onClick={() => setIsMenuOpen(false)}>
                   Donate
                 </Link>

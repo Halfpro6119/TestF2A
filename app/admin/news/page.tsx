@@ -20,7 +20,7 @@ export default async function AdminNewsPage() {
         <h1 className="heading-display text-3xl font-bold text-gray-900">
           News Articles
         </h1>
-        <Button asChild className="bg-brand-navy hover:bg-brand-navy-light">
+        <Button asChild variant="brand">
           <Link href="/admin/news/new" className="flex items-center gap-2">
             <Plus className="w-4 h-4" />
             New article
@@ -31,7 +31,7 @@ export default async function AdminNewsPage() {
       {!articles || articles.length === 0 ? (
         <div className="widget-container bg-white p-12 text-center">
           <p className="text-gray-600 mb-6">No articles yet.</p>
-          <Button asChild>
+          <Button asChild variant="brand">
             <Link href="/admin/news/new">Create your first article</Link>
           </Button>
         </div>

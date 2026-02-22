@@ -125,11 +125,7 @@ export function CommentsSection({
             {error}
           </p>
         )}
-        <Button
-          type="submit"
-          disabled={loading}
-          className="bg-brand-navy hover:bg-brand-navy-light"
-        >
+        <Button type="submit" disabled={loading} variant="brand">
           {loading ? "Posting..." : "Post comment"}
         </Button>
       </form>

@@ -17,6 +17,8 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DonateSection } from "@/components/donate-section";
+import { PageHero } from "@/components/page-hero";
+import { ScrollRevealSection } from "@/components/scroll-reveal-section";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -109,37 +111,18 @@ export default function AboutPage() {
   return (
     <main id="main">
       {/* Hero */}
-      <section
-        className="pt-28 pb-16 sm:pt-32 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-brand-grey"
-        aria-labelledby="about-heading"
-      >
-        <div className="max-w-4xl mx-auto text-center">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-brand-navy hover:text-brand-navy-light transition-colors duration-300 mb-8 text-sm font-medium focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2 rounded"
-          >
-            ← Back to home
-          </Link>
-          <h1
-            id="about-heading"
-            className="heading-display text-4xl sm:text-5xl font-bold text-gray-900 mb-4 leading-tight"
-          >
-            About Footprints 2 Africa
-          </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
-            A UK registered, faith-based charity dedicated to bringing dignity,
-            hope and compassion to ostomates. We distribute donated stoma
-            supplies and provide support, empowering the most vulnerable to live
-            with confidence and care.
-          </p>
-          <p className="legend-text text-gray-500">
-            UK Registered Charity No. 1214173 · England and Wales
-          </p>
-        </div>
+      <section className="px-4 sm:px-6 lg:px-8 bg-brand-grey">
+        <PageHero
+          backHref="/"
+          backLabel="Back to home"
+          heading="About Footprints 2 Africa"
+          description="A UK registered, faith-based charity dedicated to bringing dignity, hope and compassion to ostomates. We distribute donated stoma supplies and provide support, empowering the most vulnerable to live with confidence and care."
+          legend="UK Registered Charity No. 1214173 · England and Wales"
+        />
       </section>
 
       {/* Trust badges */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-white border-y border-gray-200">
+      <ScrollRevealSection className="py-8 px-4 sm:px-6 lg:px-8 bg-white border-y border-gray-200">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {trustBadges.map((badge, idx) => {
@@ -174,7 +157,7 @@ export default function AboutPage() {
             })}
           </div>
         </div>
-      </section>
+      </ScrollRevealSection>
 
       {/* Our Story */}
       <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-brand-grey">
@@ -256,7 +239,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Team */}
-      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <ScrollRevealSection className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="heading-display text-3xl font-bold text-gray-900 mb-2 text-center leading-tight">
             Our Team
@@ -298,7 +281,7 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
+      </ScrollRevealSection>
 
       {/* Governance & Transparency */}
       <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
@@ -355,10 +338,7 @@ export default function AboutPage() {
               groups across Africa. If you would like to explore a partnership,
               we would love to hear from you.
             </p>
-            <Button
-              asChild
-              className="bg-brand-navy hover:bg-brand-navy-light text-white px-8 py-6 min-h-[44px] transition-colors duration-300 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
-            >
+            <Button asChild variant="brand">
               <Link href="/#contact">
                 Get in touch <ArrowRight className="ml-2 w-4 h-4" />
               </Link>

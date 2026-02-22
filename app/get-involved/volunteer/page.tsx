@@ -2,12 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   Users,
-  Heart,
   ArrowRight,
   CheckCircle,
-  Building2,
-  Briefcase,
-  Sparkles,
   Quote,
   Mail,
   MapPin,
@@ -17,6 +13,8 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DonateSection } from "@/components/donate-section";
+import { PageHero } from "@/components/page-hero";
+import { VolunteerEmployerBenefits } from "@/components/volunteer-employer-benefits";
 
 export const metadata: Metadata = {
   title: "Volunteer",
@@ -39,56 +37,17 @@ const individualBenefits = [
   "Flexible hours—a few hours a week or one-off events",
 ];
 
-const employerBenefits = [
-  {
-    Icon: Briefcase,
-    title: "Flexible opportunities",
-    desc: "For individuals or teams—team days, skilled volunteering, or long-term partnerships",
-  },
-  {
-    Icon: Sparkles,
-    title: "Hands-on or skills-based",
-    desc: "Tailored to your team's expertise and goals",
-  },
-  {
-    Icon: Building2,
-    title: "Visibility and recognition",
-    desc: "Showcase your company's community support",
-  },
-  {
-    Icon: Heart,
-    title: "Positive impact",
-    desc: "Boost employee engagement, wellbeing and retention",
-  },
-];
-
 export default function VolunteerPage() {
   return (
     <main id="main">
       {/* Hero */}
-      <section
-        className="pt-28 pb-16 sm:pt-32 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-brand-grey"
-        aria-labelledby="volunteer-heading"
-      >
-        <div className="max-w-4xl mx-auto text-center">
-          <Link
-            href="/get-involved"
-            className="inline-flex items-center gap-2 text-brand-navy hover:text-brand-navy-light transition-colors duration-300 mb-8 text-sm font-medium focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2 rounded"
-          >
-            ← Back to Get Involved
-          </Link>
-          <h1
-            id="volunteer-heading"
-            className="heading-display text-4xl sm:text-5xl font-bold text-gray-900 mb-4 leading-tight"
-          >
-            Volunteer
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Volunteers are the heart of our mission—when you give your time, you
-            give hope. Ready to make a difference? Join our volunteer community
-            today.
-          </p>
-        </div>
+      <section className="px-4 sm:px-6 lg:px-8 bg-brand-grey">
+        <PageHero
+          backHref="/get-involved"
+          backLabel="Back to Get Involved"
+          heading="Volunteer"
+          description="Volunteers are the heart of our mission—when you give your time, you give hope. Ready to make a difference? Join our volunteer community today."
+        />
       </section>
 
       {/* Individual Volunteers */}
@@ -137,10 +96,7 @@ export default function VolunteerPage() {
                 </li>
               ))}
             </ul>
-            <Button
-              asChild
-              className="bg-brand-navy hover:bg-brand-navy-light text-white min-h-[48px] px-8 transition-colors duration-300 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
-            >
+            <Button asChild variant="brand" size="cta-lg">
               <a
                 href={INDIVIDUAL_SIGNUP_URL}
                 target="_blank"
@@ -182,28 +138,12 @@ export default function VolunteerPage() {
             real difference.
           </p>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {employerBenefits.map(({ Icon, title, desc }, idx) => (
-              <div
-                key={idx}
-                className="p-6 rounded-xl border border-gray-200 bg-white hover:border-brand-blue/30 hover:shadow-md transition-all duration-300"
-              >
-                <div className="w-10 h-10 bg-brand-blue/20 rounded-lg flex items-center justify-center mb-4">
-                  <Icon className="w-5 h-5 text-brand-navy" />
-                </div>
-                <h3 className="heading-display font-bold text-gray-900 mb-2 leading-tight">
-                  {title}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{desc}</p>
-              </div>
-            ))}
+          <div className="widget-container bg-white p-8">
+            <VolunteerEmployerBenefits />
           </div>
 
           <div className="max-w-2xl mx-auto text-center">
-            <Button
-              asChild
-              className="bg-brand-navy hover:bg-brand-navy-light text-white min-h-[48px] px-8 transition-colors duration-300 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
-            >
+            <Button asChild variant="brand" size="cta-lg">
               <a
                 href={EMPLOYER_SIGNUP_URL}
                 target="_blank"

@@ -1,14 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  Building2,
   Heart,
   ArrowRight,
   CheckCircle,
   Handshake,
-  Megaphone,
-  Gift,
-  Users,
   Mail,
   MapPin,
   Facebook,
@@ -19,6 +15,9 @@ import {
 import { Button } from "@/components/ui/button";
 import { DonateSection } from "@/components/donate-section";
 import { PartnerLogoMarquee } from "@/components/partner-logo-marquee";
+import { PageHero } from "@/components/page-hero";
+import { PartnersHowInvolved } from "@/components/partners-how-involved";
+import { ScrollRevealSection } from "@/components/scroll-reveal-section";
 
 export const metadata: Metadata = {
   title: "Partners",
@@ -30,29 +29,6 @@ export const metadata: Metadata = {
       "Meaningful change happens when we work together. Join our partners in sharing resources, expertise and passion for making a difference.",
   },
 };
-
-const partnerTypes = [
-  {
-    Icon: Building2,
-    title: "Corporate & Community Partners",
-    desc: "Businesses and organisations that share our vision. Partner through employee volunteering, matched giving, or long-term support.",
-  },
-  {
-    Icon: Megaphone,
-    title: "Co-host Events",
-    desc: "Fundraising or awareness events that amplify our message and reach new supporters.",
-  },
-  {
-    Icon: Gift,
-    title: "In-Kind Support",
-    desc: "Donate supplies, logistics, expertise or services that directly support our mission.",
-  },
-  {
-    Icon: Users,
-    title: "Spread the Word",
-    desc: "Use your platform, network or voice to raise awareness and connect us with potential supporters.",
-  },
-];
 
 const whyPartner = [
   {
@@ -76,29 +52,13 @@ export default function PartnersPage() {
   return (
     <main id="main">
       {/* Hero */}
-      <section
-        className="pt-28 pb-16 sm:pt-32 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-brand-grey"
-        aria-labelledby="partners-heading"
-      >
-        <div className="max-w-4xl mx-auto text-center">
-          <Link
-            href="/get-involved"
-            className="inline-flex items-center gap-2 text-brand-navy hover:text-brand-navy-light transition-colors duration-300 mb-8 text-sm font-medium focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2 rounded"
-          >
-            ← Back to Get Involved
-          </Link>
-          <h1
-            id="partners-heading"
-            className="heading-display text-4xl sm:text-5xl font-bold text-gray-900 mb-4 leading-tight"
-          >
-            Partners
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Meaningful change happens when we work together. Our partners play a
-            vital role in helping us achieve our mission by sharing resources,
-            expertise and passion for making a difference.
-          </p>
-        </div>
+      <section className="px-4 sm:px-6 lg:px-8 bg-brand-grey">
+        <PageHero
+          backHref="/get-involved"
+          backLabel="Back to Get Involved"
+          heading="Partners"
+          description="Meaningful change happens when we work together. Our partners play a vital role in helping us achieve our mission by sharing resources, expertise and passion for making a difference."
+        />
       </section>
 
       {/* Partner with Us - Intro */}
@@ -156,27 +116,14 @@ export default function PartnersPage() {
             Choose the partnership path that fits your organisation or goals.
           </p>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {partnerTypes.map(({ Icon, title, desc }, idx) => (
-              <div
-                key={idx}
-                className="p-6 rounded-xl border border-gray-200 bg-white hover:border-brand-blue/30 hover:shadow-md transition-all duration-300"
-              >
-                <div className="w-10 h-10 bg-brand-blue/20 rounded-lg flex items-center justify-center mb-4">
-                  <Icon className="w-5 h-5 text-brand-navy" />
-                </div>
-                <h3 className="heading-display font-bold text-gray-900 mb-2 leading-tight">
-                  {title}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{desc}</p>
-              </div>
-            ))}
+          <div className="widget-container bg-white p-8">
+            <PartnersHowInvolved />
           </div>
         </div>
       </section>
 
       {/* Why Partner With Us */}
-      <section
+      <ScrollRevealSection
         className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white"
         aria-labelledby="why-partner-heading"
       >
@@ -209,7 +156,7 @@ export default function PartnersPage() {
             ))}
           </div>
         </div>
-      </section>
+      </ScrollRevealSection>
 
       {/* Our Partners - Logo strips */}
       <section
@@ -276,10 +223,7 @@ export default function PartnersPage() {
                   </li>
                 ))}
               </ul>
-              <Button
-                asChild
-                className="bg-white text-brand-navy hover:bg-gray-100 min-h-[48px] px-8 transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
-              >
+              <Button asChild variant="brand-inverse">
                 <a
                   href="mailto:sam@footprints2africa.org.uk?subject=Partnership%20inquiry"
                   className="inline-flex items-center gap-2"

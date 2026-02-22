@@ -18,6 +18,9 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DonateSection } from "@/components/donate-section";
+import { PageHero } from "@/components/page-hero";
+import { GetInvolvedStats } from "@/components/get-involved-stats";
+import { ScrollRevealSection } from "@/components/scroll-reveal-section";
 
 export const metadata: Metadata = {
   title: "Get Involved",
@@ -33,24 +36,6 @@ export const metadata: Metadata = {
 const BULK_DONATION_FORM_URL = "https://forms.gle/MKx9xBuKyiNnbY4B9";
 const JUSTGIVING_URL = "https://www.justgiving.com/charity/footprints2africa";
 
-const stats = [
-  {
-    value: "Millions",
-    label: "people live with an ostomy worldwide",
-    Icon: Users,
-  },
-  {
-    value: "Unopened",
-    label: "unused ostomy supplies often go to waste",
-    Icon: Package,
-  },
-  {
-    value: "Donated",
-    label: "supplies provide dignity and independence",
-    Icon: Heart,
-  },
-];
-
 const donationAddress = {
   label: "Stoma",
   line1: "Limekiln Farm",
@@ -63,60 +48,27 @@ export default function GetInvolvedPage() {
   return (
     <main id="main">
       {/* Hero */}
-      <section
-        className="pt-28 pb-16 sm:pt-32 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-brand-grey"
-        aria-labelledby="get-involved-heading"
-      >
-        <div className="max-w-4xl mx-auto text-center">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-brand-navy hover:text-brand-navy-light transition-colors duration-300 mb-8 text-sm font-medium focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2 rounded"
-          >
-            ← Back to home
-          </Link>
-          <h1
-            id="get-involved-heading"
-            className="heading-display text-4xl sm:text-5xl font-bold text-gray-900 mb-4 leading-tight"
-          >
-            Donate Ostomy Supplies
-          </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Give your surplus supplies a second life. We collect ostomy and
-            menstrual care supplies—including bags, catheters, pads and related
-            accessories—and deliver them where they&apos;re needed most.
-          </p>
-        </div>
+      <section className="px-4 sm:px-6 lg:px-8 bg-brand-grey">
+        <PageHero
+          backHref="/"
+          backLabel="Back to home"
+          heading="Donate Ostomy Supplies"
+          description="Give your surplus supplies a second life. We collect ostomy and menstrual care supplies—including bags, catheters, pads and related accessories—and deliver them where they&apos;re needed most."
+        />
       </section>
 
       {/* Stats */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white border-y border-gray-200">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {stats.map((stat, idx) => {
-              const IconComponent = stat.Icon;
-              return (
-                <div
-                  key={idx}
-                  className="text-center p-6 rounded-xl border border-gray-200 bg-gray-50/50 hover:bg-brand-blue/5 hover:border-brand-blue/30 transition-all duration-300"
-                >
-                  <div className="w-12 h-12 bg-brand-blue/20 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <IconComponent className="w-6 h-6 text-brand-navy" />
-                  </div>
-                  <p className="heading-display text-xl font-bold text-brand-navy mb-1">
-                    {stat.value}
-                  </p>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {stat.label}
-                  </p>
-                </div>
-              );
-            })}
+          <div className="widget-container-gradient p-6 md:p-8">
+            <p className="legend-text text-center mb-6">Why donate</p>
+            <GetInvolvedStats />
           </div>
         </div>
       </section>
 
       {/* General Donations */}
-      <section
+      <ScrollRevealSection
         className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-brand-grey"
         aria-labelledby="general-donations-heading"
       >
@@ -178,7 +130,7 @@ export default function GetInvolvedPage() {
             </div>
           </div>
         </div>
-      </section>
+      </ScrollRevealSection>
 
       {/* Bulk Donations */}
       <section
@@ -214,10 +166,7 @@ export default function GetInvolvedPage() {
               We can <strong>arrange a collection</strong> to make sure your
               supplies go to where they&apos;re needed most.
             </p>
-            <Button
-              asChild
-              className="bg-brand-navy hover:bg-brand-navy-light text-white min-h-[48px] px-8 transition-colors duration-300 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
-            >
+            <Button asChild variant="brand" size="cta-lg">
               <a
                 href={BULK_DONATION_FORM_URL}
                 target="_blank"
@@ -266,10 +215,7 @@ export default function GetInvolvedPage() {
                 pound you give ensures we can continue shipping vital ostomy
                 supplies where they&apos;re needed most.
               </p>
-              <Button
-                asChild
-                className="bg-brand-red hover:bg-brand-red-hover text-white w-full sm:w-auto min-h-[48px] px-8 transition-colors duration-300 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
-              >
+            <Button asChild variant="cta" size="cta-lg" className="w-full sm:w-auto">
                 <Link href="/#donate" className="inline-flex items-center gap-2">
                   Donate now
                   <ArrowRight className="w-4 h-4" />
@@ -293,11 +239,7 @@ export default function GetInvolvedPage() {
                 create your own personal fundraising page in support of Footprints
                 2 Africa.
               </p>
-              <Button
-                asChild
-                variant="outline"
-                className="border-brand-navy text-brand-navy hover:bg-brand-navy/5 w-full sm:w-auto min-h-[48px] px-8 transition-colors duration-300 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
-              >
+              <Button asChild variant="brand-outline" size="cta-lg" className="w-full sm:w-auto">
                 <a
                   href={JUSTGIVING_URL}
                   target="_blank"
@@ -345,10 +287,7 @@ export default function GetInvolvedPage() {
                   </li>
                 ))}
               </ul>
-                <Button
-                  asChild
-                  className="mt-auto bg-white text-brand-navy hover:bg-gray-100 min-h-[48px] px-8 transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
-                >
+                <Button asChild variant="brand-inverse" className="mt-auto">
                   <Link
                     href="/get-involved/volunteer"
                     className="inline-flex items-center gap-2"
@@ -389,10 +328,7 @@ export default function GetInvolvedPage() {
                     </li>
                   ))}
                 </ul>
-                <Button
-                  asChild
-                  className="mt-auto bg-white text-brand-navy hover:bg-gray-100 min-h-[48px] px-8 transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
-                >
+                <Button asChild variant="brand-inverse" className="mt-auto">
                   <Link
                     href="/get-involved/partners"
                     className="inline-flex items-center gap-2"

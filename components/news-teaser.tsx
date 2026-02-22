@@ -5,7 +5,7 @@ import { NewsArticleCard } from "@/components/news-article-card";
 import { Button } from "@/components/ui/button";
 
 export async function NewsTeaser() {
-  const articles = await getArticles(3);
+  const articles = await getArticles(6);
 
   if (articles.length === 0) {
     return null;
@@ -36,7 +36,7 @@ export async function NewsTeaser() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
-          <div className="lg:col-span-2">
+          <div className="sm:col-span-2">
             <NewsArticleCard article={featuredArticle} featured />
           </div>
           {restArticles.map((article) => (
@@ -45,10 +45,7 @@ export async function NewsTeaser() {
         </div>
 
         <div className="flex justify-center">
-          <Button
-            asChild
-            className="bg-brand-navy hover:bg-brand-navy-light text-white px-8 py-6 min-h-[44px] transition-colors duration-300 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
-          >
+          <Button asChild variant="brand">
             <Link href="/news">
               View all news <ArrowRight className="ml-2 w-4 h-4" />
             </Link>

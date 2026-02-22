@@ -169,10 +169,7 @@ export function DonateSection() {
                 </span>
               ))}
             </div>
-            <Button
-              className="bg-brand-red hover:bg-brand-red-hover text-white min-h-[48px] px-6 text-base font-semibold rounded-lg transition-colors duration-300 focus-visible:ring-brand-navy focus-visible:ring-offset-2 shrink-0 ml-auto"
-              asChild
-            >
+            <Button variant="cta" size="cta-lg" className="shrink-0 ml-auto" asChild>
               <a
                 href="#"
                 className="inline-flex items-center gap-2"

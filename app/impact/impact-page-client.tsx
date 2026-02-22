@@ -3,10 +3,12 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Play, FileText, ArrowLeft } from "lucide-react";
+import { Play, FileText } from "lucide-react";
 import { ImpactArticleCard } from "@/components/impact-article-card";
 import { ImpactVideoCard } from "@/components/impact-video-card";
 import type { ImpactArticle, ImpactVideo } from "@/lib/impact";
+import { PageHero } from "@/components/page-hero";
+import { ScrollRevealSection } from "@/components/scroll-reveal-section";
 
 interface ImpactPageClientProps {
   articles: ImpactArticle[];
@@ -19,25 +21,17 @@ export function ImpactPageClient({
 }: ImpactPageClientProps) {
   return (
     <main id="main">
-      <section className="pt-28 pb-12 sm:pt-32 sm:pb-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="px-4 sm:px-6 lg:px-8 bg-brand-grey">
+        <PageHero
+          backHref="/"
+          backLabel="Back to home"
+          heading="Our Impact"
+          description="Explore how Footprints to Africa is making a difference. Watch video testimonials and read stories from those whose lives have been transformed by access to essential ostomy supplies."
+        />
+      </section>
+
+      <ScrollRevealSection className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-brand-navy hover:text-brand-navy-light transition-colors duration-300 mb-8 text-sm font-medium focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2 rounded"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to home
-          </Link>
-
-          <h1 className="heading-display text-4xl font-bold text-gray-900 mb-2 leading-tight">
-            Our Impact
-          </h1>
-          <p className="legend-text max-w-2xl mb-12">
-            Explore how Footprints to Africa is making a difference. Watch video
-            testimonials and read stories from those whose lives have been
-            transformed by access to essential ostomy supplies.
-          </p>
-
           <Tabs defaultValue="all" className="w-full">
             <TabsList className="mb-8">
               <TabsTrigger value="all">All</TabsTrigger>
@@ -120,7 +114,7 @@ export function ImpactPageClient({
             </TabsContent>
           </Tabs>
         </div>
-      </section>
+      </ScrollRevealSection>
     </main>
   );
 }

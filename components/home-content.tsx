@@ -44,8 +44,8 @@ export function HomeContent({
   impactVideos,
 }: {
   children?: React.ReactNode;
-  impactArticles: Awaited<ReturnType<typeof getImpactArticles>>;
-  impactVideos: Awaited<ReturnType<typeof getImpactVideos>>;
+  impactArticles: ImpactArticle[];
+  impactVideos: ImpactVideo[];
 }) {
   const testimonials = impactVideos;
   const [countersStarted, setCountersStarted] = useState(false);
@@ -154,10 +154,7 @@ export function HomeContent({
               </span>
               {/* CTA strip – refined overlay: starts higher so it doesn't obscure continents */}
               <div className="absolute bottom-0 left-0 right-0 h-32 sm:h-36 bg-gradient-to-t from-brand-navy via-brand-navy/90 to-transparent px-4 sm:px-6 py-4 sm:py-5 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-              <Button
-                asChild
-                className="bg-brand-red hover:bg-brand-red-hover text-white px-6 py-5 text-base sm:text-lg min-h-[44px] shadow-lg ring-2 ring-white/20 transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy shrink-0"
-              >
+              <Button asChild variant="cta-hero" className="shrink-0">
                 <a href="#donate">
                   Donate Now <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
                 </a>
@@ -165,7 +162,7 @@ export function HomeContent({
               <Button
                 asChild
                 variant="outline"
-                className="border-white bg-white/15 text-white font-semibold hover:bg-white/25 px-6 py-5 text-base min-h-[44px] transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy shrink-0"
+                className="border-white bg-white/15 text-white font-semibold hover:bg-white/25 px-6 py-5 text-base min-h-[44px] shrink-0"
               >
                 <a href="#about">How We Help</a>
               </Button>
@@ -418,10 +415,7 @@ export function HomeContent({
               </div>
 
               <div className="flex justify-center">
-                <Button
-                  asChild
-                  className="bg-brand-navy hover:bg-brand-navy-light text-white px-8 py-6 min-h-[44px] transition-colors duration-300 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
-                >
+                <Button asChild variant="brand">
                   <Link href="/impact">
                     View all impact stories <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
@@ -655,10 +649,7 @@ export function HomeContent({
                 <p className="text-gray-600 text-sm mb-6 leading-relaxed">
                   Direct impact on lives. Your donation funds collection, sorting, and delivery of essential medical supplies.
                 </p>
-                <Button
-                  asChild
-                  className="bg-brand-red hover:bg-brand-red-hover text-white w-full min-h-[44px] transition-colors duration-300 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
-                >
+                <Button asChild variant="cta" className="w-full">
                   <a href="#donate">Donate Now</a>
                 </Button>
               </div>
@@ -675,11 +666,8 @@ export function HomeContent({
                 <p className="text-gray-600 text-sm mb-6 leading-relaxed">
                   Join our team. Help collect, sort, and pack supplies. No experience necessary—just compassion.
                 </p>
-                <Button
-                  variant="outline"
-                  className="border-brand-navy text-brand-navy hover:bg-brand-navy/5 w-full min-h-[44px] transition-colors duration-300 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
-                >
-                  Get Started
+                <Button variant="brand-outline" className="w-full" asChild>
+                  <Link href="/get-involved/volunteer">Get Started</Link>
                 </Button>
               </div>
             </div>
@@ -838,10 +826,7 @@ export function HomeContent({
               </li>
             </ul>
             <div className="flex flex-wrap gap-3">
-              <Button
-                asChild
-                className="bg-brand-red hover:bg-brand-red-hover text-white font-bold uppercase tracking-wide px-6 py-5 min-h-[44px] rounded-md transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
-              >
+              <Button asChild variant="cta-footer">
                 <a href="#donate">Become a Supporter</a>
               </Button>
             </div>
