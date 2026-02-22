@@ -41,7 +41,6 @@ export async function generateMetadata({
       title: video.name,
       description: video.quote || `Impact video testimonial from Footprints 2 Africa`,
       url,
-      publishedTime: video.published_at,
       siteName: "Footprints 2 Africa",
       images: [
         {
