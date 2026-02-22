@@ -33,8 +33,12 @@ export function useScrollReveal(threshold = 0.15) {
 /**
  * Returns scroll progress (0–1) for a section, similar to How It Works on home.
  * Progress increases as the section scrolls into view.
+ * @param progressReachAt - Viewport fraction (0–1) where progress reaches 1 (default 0).
+ *   E.g. 0.4 = fully revealed when section top is 40% down the viewport (still visible).
+ *   Use for sections with content below (e.g. a CTA button) so the timeline is fully
+ *   visible by the time the user scrolls to the button.
  */
-export function useScrollProgress() {
+export function useScrollProgress(progressReachAt = 0) {
   const ref = useRef<HTMLElement>(null);
   const [progress, setProgress] = useState(0);
 
@@ -45,7 +49,9 @@ export function useScrollProgress() {
 
       const rect = section.getBoundingClientRect();
       const vh = window.innerHeight;
-      const raw = 1 - rect.top / (vh * 0.8);
+      // Progress = 1 when rect.top <= vh * progressReachAt (section still in view)
+      const denom = vh * (1 - progressReachAt);
+      const raw = denom > 0 ? (vh - rect.top) / denom : 1;
       const p = Math.min(1, Math.max(0, raw));
       setProgress(p);
     };
@@ -53,7 +59,7 @@ export function useScrollProgress() {
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [progressReachAt]);
 
   return { ref, progress };
 }

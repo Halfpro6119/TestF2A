@@ -20,6 +20,7 @@ export function VolunteerEmployerBenefits() {
         Icon,
       }))}
       showProgressLine={true}
+      progressReachAt={0.4}
       className="mb-0"
     />
   );

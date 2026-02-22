@@ -14,6 +14,8 @@ interface ProgressRevealStepsProps {
   steps: ProgressStep[];
   /** Optional progress line (like How It Works on home) */
   showProgressLine?: boolean;
+  /** Viewport fraction (0–1) where progress reaches 1. E.g. 0.4 = fully revealed when section top is 40% down. Default 0. */
+  progressReachAt?: number;
   className?: string;
 }
 
@@ -24,9 +26,10 @@ interface ProgressRevealStepsProps {
 export function ProgressRevealSteps({
   steps,
   showProgressLine = true,
+  progressReachAt = 0,
   className = "",
 }: ProgressRevealStepsProps) {
-  const { ref, progress } = useScrollProgress();
+  const { ref, progress } = useScrollProgress(progressReachAt);
 
   return (
     <div ref={ref as React.RefObject<HTMLDivElement>} className={className}>

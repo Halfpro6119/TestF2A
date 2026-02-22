@@ -64,7 +64,8 @@ export function HomeContent({
       if (section) {
         const rect = section.getBoundingClientRect();
         const vh = window.innerHeight;
-        const raw = 1 - rect.top / (vh * 0.8);
+        // Progress reaches 1 when section top is at middle of screen (50% viewport)
+        const raw = (vh - rect.top) / (vh * 0.5);
         const progress = Math.min(1, Math.max(0, raw));
         setHowItWorksProgress(progress);
       }
