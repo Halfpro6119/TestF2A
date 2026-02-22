@@ -175,7 +175,7 @@ export function ImpactMap({ className = "" }: ImpactMapProps) {
       {/* Tooltip */}
       {tooltipContent && (
         <div
-          className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-[#2A307C] text-white text-sm font-medium px-4 py-2 rounded-lg shadow-lg pointer-events-none z-10 whitespace-nowrap"
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-brand-navy text-white text-sm font-medium px-4 py-2 rounded-lg shadow-lg pointer-events-none z-10 whitespace-nowrap"
           role="tooltip"
         >
           {tooltipContent}

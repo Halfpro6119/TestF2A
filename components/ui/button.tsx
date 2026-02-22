@@ -29,7 +29,7 @@ const buttonVariants = cva(
         "brand-outline":
           "border-2 border-brand-navy text-brand-navy bg-transparent hover:bg-brand-navy/5 hover:shadow-md hover:shadow-[0_0_15px_rgba(42,48,124,0.2)] min-h-[44px] px-8 py-6 text-base",
         "brand-inverse":
-          "bg-white text-brand-navy hover:bg-gray-100 shadow-md hover:shadow-lg min-h-[48px] px-8 text-base focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy",
+          "bg-white text-brand-navy hover:bg-brand-grey shadow-md hover:shadow-lg min-h-[48px] px-8 text-base focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy",
         "cta-footer":
           "bg-brand-red hover:bg-brand-red-hover text-white font-bold uppercase tracking-wide shadow-lg hover:shadow-xl hover:shadow-[0_0_25px_rgba(228,31,41,0.35)] min-h-[44px] px-6 py-5 rounded-md",
       },

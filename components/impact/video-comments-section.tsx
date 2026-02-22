@@ -92,7 +92,7 @@ export function ImpactVideoCommentsSection({
 
       <form
         onSubmit={handleSubmit}
-        className="space-y-4 mb-8 bg-gray-50/50 rounded-lg p-4 md:p-6"
+        className="space-y-4 mb-8 bg-brand-grey/50 rounded-lg p-4 md:p-6"
       >
         <p className="legend-text-sm mb-2">Add a comment</p>
         <div>
@@ -123,7 +123,7 @@ export function ImpactVideoCommentsSection({
           />
         </div>
         {error && (
-          <p className="text-sm text-red-600" role="alert">
+          <p className="text-sm text-brand-red" role="alert">
             {error}
           </p>
         )}
@@ -151,7 +151,7 @@ export function ImpactVideoCommentsSection({
             return (
               <div
                 key={comment.id}
-                className={`p-4 rounded-lg border-l-4 border-l-brand-navy border border-gray-200 bg-gray-50/50 ${
+                className={`p-4 rounded-lg border-l-4 border-l-brand-navy border border-gray-200 bg-brand-grey/50 ${
                   isNewest ? "bg-brand-blue/5 border-l-brand-navy" : ""
                 }`}
               >

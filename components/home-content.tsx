@@ -24,7 +24,6 @@ import {
   Boxes,
   Ship,
   Facebook,
-  Twitter,
   Instagram,
   FileText,
 } from "lucide-react";
@@ -342,7 +341,7 @@ export function HomeContent({
                     className={`min-h-[44px] min-w-[44px] rounded-full transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2 ${
                       activeTestimonial === idx
                         ? "bg-brand-navy w-8"
-                        : "bg-gray-300 hover:bg-gray-400 w-3"
+                        : "bg-brand-grey hover:bg-brand-navy/30 w-3"
                     }`}
                   />
                 ))}
@@ -494,7 +493,7 @@ export function HomeContent({
                       {country.supplies.toLocaleString()} supplies
                     </p>
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden">
+                  <div className="w-full bg-brand-grey rounded-full h-2.5 overflow-hidden">
                     <div
                       className={`${country.color} h-full rounded-full transition-all duration-700`}
                       style={{
@@ -772,12 +771,12 @@ export function HomeContent({
                 </Link>
               </li>
               <li>
-                <a
-                  href="#contact"
+                <Link
+                  href="/contact"
                   className="hover:text-brand-blue transition-colors duration-300 inline-block focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy rounded"
                 >
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
             <div className="flex flex-wrap gap-3">
@@ -823,9 +822,8 @@ export function HomeContent({
               </h3>
               <ul className="space-y-3 text-sm flex flex-col">
                 {[
-                  { name: "Facebook", Icon: Facebook, href: "https://www.facebook.com/footprints2africa" },
-                  { name: "Twitter", Icon: Twitter, href: "https://www.twitter.com/footprints2africa" },
-                  { name: "Instagram", Icon: Instagram, href: "https://www.instagram.com/footprints2africa" },
+                  { name: "Facebook", Icon: Facebook, href: "https://www.facebook.com/p/Footprints-2-Africa-61573135224358/" },
+                  { name: "Instagram", Icon: Instagram, href: "https://www.instagram.com/footprints2africa/?hl=en" },
                 ].map(({ name, Icon, href }) => (
                   <li key={name}>
                     <a

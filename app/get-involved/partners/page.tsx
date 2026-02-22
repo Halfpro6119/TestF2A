@@ -8,7 +8,6 @@ import {
   Mail,
   MapPin,
   Facebook,
-  Twitter,
   Instagram,
   Sparkles,
 } from "lucide-react";
@@ -27,7 +26,15 @@ export const metadata: Metadata = {
     title: "Partners | Footprints 2 Africa",
     description:
       "Meaningful change happens when we work together. Join our partners in sharing resources, expertise and passion for making a difference.",
+    url: "/get-involved/partners",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Partners | Footprints 2 Africa",
+    description:
+      "Meaningful change happens when we work together. Join our partners in sharing resources, expertise and passion for making a difference.",
+  },
+  alternates: { canonical: "/get-involved/partners" },
 };
 
 const whyPartner = [
@@ -143,7 +150,7 @@ export default function PartnersPage() {
             {whyPartner.map(({ Icon, title, desc }, idx) => (
               <div
                 key={idx}
-                className="text-center p-6 rounded-xl border border-gray-200 bg-gray-50/50 hover:bg-brand-blue/5 hover:border-brand-blue/30 transition-all duration-300"
+                className="text-center p-6 rounded-xl border border-gray-200 bg-brand-grey/50 hover:bg-brand-blue/5 hover:border-brand-blue/30 transition-all duration-300"
               >
                 <div className="w-12 h-12 bg-brand-blue/20 rounded-lg flex items-center justify-center mx-auto mb-4">
                   <Icon className="w-6 h-6 text-brand-navy" />
@@ -279,17 +286,12 @@ export default function PartnersPage() {
                   {
                     name: "Facebook",
                     Icon: Facebook,
-                    href: "https://www.facebook.com/footprints2africa",
-                  },
-                  {
-                    name: "Twitter",
-                    Icon: Twitter,
-                    href: "https://www.twitter.com/footprints2africa",
+                    href: "https://www.facebook.com/p/Footprints-2-Africa-61573135224358/",
                   },
                   {
                     name: "Instagram",
                     Icon: Instagram,
-                    href: "https://www.instagram.com/footprints2africa",
+                    href: "https://www.instagram.com/footprints2africa/?hl=en",
                   },
                 ].map(({ name, Icon, href }) => (
                   <li key={name}>

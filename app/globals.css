@@ -179,7 +179,7 @@
   @apply text-xl font-bold text-gray-900 mt-8 mb-3 leading-tight;
 }
 .article-content blockquote {
-  @apply border-l-4 border-brand-navy pl-4 py-2 my-6 italic text-gray-600 bg-gray-50/50 rounded-r-lg;
+  @apply border-l-4 border-brand-navy pl-4 py-2 my-6 italic text-gray-600 bg-brand-grey/50 rounded-r-lg;
 }
 .article-content ul {
   @apply list-disc pl-6 space-y-2 text-gray-700 my-4;

@@ -257,7 +257,7 @@ export function NewsEditor({
                     <button
                       type="button"
                       onClick={() => setImageUrl("")}
-                      className="absolute top-2 right-2 p-1 bg-red-600 text-white rounded-full hover:bg-red-700"
+                      className="absolute top-2 right-2 p-1 bg-brand-red text-white rounded-full hover:bg-brand-red-hover"
                       aria-label="Remove image"
                     >
                       <X className="w-4 h-4" />
@@ -289,7 +289,7 @@ export function NewsEditor({
             </div>
 
             {error && (
-              <p className="text-sm text-red-600" role="alert">
+              <p className="text-sm text-brand-red" role="alert">
                 {error}
               </p>
             )}
@@ -310,7 +310,7 @@ export function NewsEditor({
             <Eye className="w-5 h-5 text-brand-navy" />
             Live preview
           </h2>
-          <div className="border border-gray-200 rounded-xl p-6 bg-gray-50/50 max-h-[calc(100vh-12rem)] overflow-y-auto">
+          <div className="border border-gray-200 rounded-xl p-6 bg-brand-grey/50 max-h-[calc(100vh-12rem)] overflow-y-auto">
             <article className="space-y-6">
               {imageUrl && (
                 <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-brand-blue/10">

@@ -69,7 +69,7 @@ export function ImpactPageClient({
                   </div>
                 )}
                 {videos.length === 0 && articles.length === 0 && (
-                  <div className="text-center py-16 bg-gray-50 rounded-xl">
+                  <div className="text-center py-16 bg-brand-grey rounded-xl">
                     <FileText className="w-16 h-16 text-gray-400 mx-auto mb-4" />
                     <p className="text-gray-600 mb-2">No impact content yet</p>
                     <p className="text-sm text-gray-500">
@@ -88,7 +88,7 @@ export function ImpactPageClient({
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-16 bg-gray-50 rounded-xl">
+                <div className="text-center py-16 bg-brand-grey rounded-xl">
                   <Play className="w-16 h-16 text-gray-400 mx-auto mb-4" />
                   <p className="text-gray-600">No video testimonials yet</p>
                 </div>
@@ -106,7 +106,7 @@ export function ImpactPageClient({
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-16 bg-gray-50 rounded-xl">
+                <div className="text-center py-16 bg-brand-grey rounded-xl">
                   <FileText className="w-16 h-16 text-gray-400 mx-auto mb-4" />
                   <p className="text-gray-600">No impact stories yet</p>
                 </div>

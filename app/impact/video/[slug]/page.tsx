@@ -18,6 +18,8 @@ interface PageProps {
 
 export const dynamic = "force-dynamic";
 
+const SITE_URL = "https://footprints2africa.org.uk";
+
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
@@ -26,9 +28,36 @@ export async function generateMetadata({
   if (!video) {
     return { title: "Video Not Found" };
   }
+  const url = `${SITE_URL}/impact/video/${slug}`;
+  const image = `${SITE_URL}/images/logo-hero.png`;
   return {
     title: video.name,
-    description: video.quote,
+    description: video.quote || `Impact video testimonial from Footprints 2 Africa - ${video.name}`,
+    alternates: {
+      canonical: `/impact/video/${slug}`,
+    },
+    openGraph: {
+      type: "video.other",
+      title: video.name,
+      description: video.quote || `Impact video testimonial from Footprints 2 Africa`,
+      url,
+      publishedTime: video.published_at,
+      siteName: "Footprints 2 Africa",
+      images: [
+        {
+          url: image,
+          width: 1200,
+          height: 630,
+          alt: video.name,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: video.name,
+      description: video.quote || `Impact video testimonial from Footprints 2 Africa`,
+      images: [image],
+    },
   };
 }
 
@@ -58,8 +87,30 @@ export default async function ImpactVideoPage({ params }: PageProps) {
     }
   );
 
+  const videoSchema = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: video.name,
+    description: video.quote || video.name,
+    thumbnailUrl: `${SITE_URL}/images/logo-hero.png`,
+    uploadDate: video.published_at,
+    contentUrl: video.video_url,
+    publisher: {
+      "@type": "Organization",
+      name: "Footprints 2 Africa",
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/images/logo-hero.png`,
+      },
+    },
+  };
+
   return (
     <main id="main">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }}
+      />
       <article className="pt-28 pb-16 sm:pt-32 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-3xl mx-auto">
           <Link

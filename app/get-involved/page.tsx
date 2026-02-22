@@ -12,7 +12,6 @@ import {
   CheckCircle,
   AlertCircle,
   Facebook,
-  Twitter,
   Instagram,
   Building2,
 } from "lucide-react";
@@ -30,7 +29,15 @@ export const metadata: Metadata = {
     title: "Get Involved | Footprints 2 Africa",
     description:
       "Donate ostomy supplies, volunteer, or give financially. Every contribution restores dignity and hope to ostomates across Africa.",
+    url: "/get-involved",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Get Involved | Footprints 2 Africa",
+    description:
+      "Donate ostomy supplies, volunteer, or give financially. Every contribution restores dignity and hope to ostomates across Africa.",
+  },
+  alternates: { canonical: "/get-involved" },
 };
 
 const BULK_DONATION_FORM_URL = "https://forms.gle/MKx9xBuKyiNnbY4B9";
@@ -385,17 +392,12 @@ export default function GetInvolvedPage() {
                   {
                     name: "Facebook",
                     Icon: Facebook,
-                    href: "https://www.facebook.com/footprints2africa",
-                  },
-                  {
-                    name: "Twitter",
-                    Icon: Twitter,
-                    href: "https://www.twitter.com/footprints2africa",
+                    href: "https://www.facebook.com/p/Footprints-2-Africa-61573135224358/",
                   },
                   {
                     name: "Instagram",
                     Icon: Instagram,
-                    href: "https://www.instagram.com/footprints2africa",
+                    href: "https://www.instagram.com/footprints2africa/?hl=en",
                   },
                 ].map(({ name, Icon, href }) => (
                   <li key={name}>

@@ -76,18 +76,20 @@ export function HeroIllustration({ className }: { className?: string }) {
         aria-hidden
       >
         <defs>
+          {/* Brand Blue #2A307C - gradient from main to darker */}
           <linearGradient id="hero-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#1E3560" />
-            <stop offset="50%" stopColor="#1A2D50" />
-            <stop offset="100%" stopColor="#152238" />
+            <stop offset="0%" stopColor="#2A307C" />
+            <stop offset="50%" stopColor="#1E2460" />
+            <stop offset="100%" stopColor="#151B4D" />
           </linearGradient>
           <radialGradient id="hero-ocean-highlight" cx="50%" cy="30%" r="70%">
-            <stop offset="0%" stopColor="#254A7A" stopOpacity="0.5" />
+            <stop offset="0%" stopColor="#3d4490" stopOpacity="0.5" />
             <stop offset="100%" stopColor="transparent" stopOpacity="0" />
           </radialGradient>
+          {/* Brand Green on Map #AFDCB1 */}
           <linearGradient id="land-fill" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#C0E8C0" />
-            <stop offset="100%" stopColor="#8BCB8B" />
+            <stop offset="0%" stopColor="#c8e9ca" />
+            <stop offset="100%" stopColor="#AFDCB1" />
           </linearGradient>
           <linearGradient id="flight-path" x1="0%" y1="100%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#ffffff" />
@@ -117,7 +119,7 @@ export function HeroIllustration({ className }: { className?: string }) {
               className="hero-map hero-map-uk"
               d={UK_PATH}
               fill="url(#land-fill)"
-              stroke="#7BA86F"
+              stroke="#8BCB8B"
               strokeWidth="1.8"
               strokeLinejoin="round"
               strokeLinecap="round"
@@ -137,7 +139,7 @@ export function HeroIllustration({ className }: { className?: string }) {
               className="hero-map hero-map-africa"
               d={AFRICA_PATH}
               fill="url(#land-fill)"
-              stroke="#7BA86F"
+              stroke="#8BCB8B"
               strokeWidth="1.8"
             />
             {/* Footprint icon – Southern Africa (SA/Botswana area), faint semi-transparent */}
@@ -181,7 +183,7 @@ export function HeroIllustration({ className }: { className?: string }) {
           className="hero-foreground"
           filter="url(#foreground-wave-shadow)"
           d="M 0 540 L 0 435 Q 120 415 250 405 Q 380 398 500 392 Q 620 388 750 395 Q 880 405 1000 418 Q 1100 428 1200 438 L 1200 540 Z"
-          fill="#0D1520"
+          fill="#151B4D"
         />
       </svg>
 

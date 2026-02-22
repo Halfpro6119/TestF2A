@@ -19,7 +19,7 @@ export function ImpactLikeCountBadge({ articleSlug }: ImpactLikeCountBadgeProps)
 
   return (
     <span
-      className="inline-flex items-center gap-1 text-sm text-gray-500 rounded-full px-2 py-0.5 bg-gray-100 min-w-[2rem]"
+      className="inline-flex items-center gap-1 text-sm text-gray-500 rounded-full px-2 py-0.5 bg-brand-grey min-w-[2rem]"
       aria-label={`${count ?? 0} likes`}
     >
       <Heart className="w-4 h-4 shrink-0" />

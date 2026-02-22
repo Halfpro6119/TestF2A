@@ -12,7 +12,6 @@ import {
   Mail,
   MapPin,
   Facebook,
-  Twitter,
   Instagram,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -28,7 +27,15 @@ export const metadata: Metadata = {
     title: "About Us | Footprints 2 Africa",
     description:
       "UK registered charity restoring dignity to ostomates. 100% volunteer-led. Meet our team and learn our story.",
+    url: "/about",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Us | Footprints 2 Africa",
+    description:
+      "UK registered charity restoring dignity to ostomates. 100% volunteer-led. Meet our team and learn our story.",
+  },
+  alternates: { canonical: "/about" },
 };
 
 const CHARITY_COMMISSION_URL =
@@ -128,7 +135,7 @@ export default function AboutPage() {
             {trustBadges.map((badge, idx) => {
               const IconComponent = badge.Icon;
               const content = (
-                <div className="flex items-center gap-4 p-4 rounded-lg border border-gray-200 bg-gray-50/50 hover:bg-gray-50 hover:border-brand-blue/30 transition-colors duration-300">
+                <div className="flex items-center gap-4 p-4 rounded-lg border border-gray-200 bg-brand-grey/50 hover:bg-brand-grey hover:border-brand-blue/30 transition-colors duration-300">
                   <IconComponent className="w-8 h-8 text-brand-navy shrink-0" />
                   <div className="text-left">
                     <p className="font-bold text-gray-900 text-sm">
@@ -339,7 +346,7 @@ export default function AboutPage() {
               we would love to hear from you.
             </p>
             <Button asChild variant="brand">
-              <Link href="/#contact">
+              <Link href="/contact">
                 Get in touch <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
@@ -389,17 +396,12 @@ export default function AboutPage() {
                   {
                     name: "Facebook",
                     Icon: Facebook,
-                    href: "https://www.facebook.com/footprints2africa",
-                  },
-                  {
-                    name: "Twitter",
-                    Icon: Twitter,
-                    href: "https://www.twitter.com/footprints2africa",
+                    href: "https://www.facebook.com/p/Footprints-2-Africa-61573135224358/",
                   },
                   {
                     name: "Instagram",
                     Icon: Instagram,
-                    href: "https://www.instagram.com/footprints2africa",
+                    href: "https://www.instagram.com/footprints2africa/?hl=en",
                   },
                 ].map(({ name, Icon, href }) => (
                   <li key={name}>

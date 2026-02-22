@@ -115,7 +115,7 @@ export function DonateSection() {
                     className={`min-h-[48px] rounded-lg font-semibold transition-all duration-200 border-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2 ${
                       isSelected
                         ? "bg-brand-navy text-white border-brand-navy"
-                        : "bg-gray-100 text-gray-800 border-gray-200 hover:border-brand-blue/40 hover:bg-brand-grey"
+                        : "bg-brand-grey text-gray-800 border-gray-200 hover:border-brand-blue/40 hover:bg-brand-grey/80"
                     }`}
                   >
                     £{amount}
@@ -163,7 +163,7 @@ export function DonateSection() {
               {PAYMENT_METHODS.map((method) => (
                 <span
                   key={method.name}
-                  className="px-2 py-1 bg-gray-100 rounded text-gray-600"
+                  className="px-2 py-1 bg-brand-grey rounded text-gray-600"
                 >
                   {method.label}
                 </span>

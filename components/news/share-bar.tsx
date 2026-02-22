@@ -48,7 +48,7 @@ export function ShareBar({ path, title }: ShareBarProps) {
       <button
         type="button"
         onClick={handleCopy}
-        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-gray-200 bg-gray-50 hover:bg-gray-100 text-sm text-gray-700 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
+        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-gray-200 bg-brand-grey hover:bg-brand-grey/80 text-sm text-gray-700 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
         aria-label="Copy link"
       >
         {copied ? (
@@ -67,7 +67,7 @@ export function ShareBar({ path, title }: ShareBarProps) {
         href={twitterUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-gray-200 bg-gray-50 hover:bg-gray-100 text-sm text-gray-700 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
+        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-gray-200 bg-brand-grey hover:bg-brand-grey/80 text-sm text-gray-700 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
         aria-label="Share on Twitter"
       >
         <Twitter className="w-4 h-4" />
@@ -77,7 +77,7 @@ export function ShareBar({ path, title }: ShareBarProps) {
         href={facebookUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-gray-200 bg-gray-50 hover:bg-gray-100 text-sm text-gray-700 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
+        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-gray-200 bg-brand-grey hover:bg-brand-grey/80 text-sm text-gray-700 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
         aria-label="Share on Facebook"
       >
         <Facebook className="w-4 h-4" />

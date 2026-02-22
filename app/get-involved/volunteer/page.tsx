@@ -8,7 +8,6 @@ import {
   Mail,
   MapPin,
   Facebook,
-  Twitter,
   Instagram,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -24,7 +23,15 @@ export const metadata: Metadata = {
     title: "Volunteer | Footprints 2 Africa",
     description:
       "Give your time, give hope. Join our volunteer community—individuals or employer-supported teams—and help transform lives.",
+    url: "/get-involved/volunteer",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Volunteer | Footprints 2 Africa",
+    description:
+      "Give your time, give hope. Join our volunteer community—individuals or employer-supported teams—and help transform lives.",
+  },
+  alternates: { canonical: "/get-involved/volunteer" },
 };
 
 const INDIVIDUAL_SIGNUP_URL = "https://forms.gle/H3cMmPr7vKwQW9pX6";
@@ -238,17 +245,12 @@ export default function VolunteerPage() {
                   {
                     name: "Facebook",
                     Icon: Facebook,
-                    href: "https://www.facebook.com/footprints2africa",
-                  },
-                  {
-                    name: "Twitter",
-                    Icon: Twitter,
-                    href: "https://www.twitter.com/footprints2africa",
+                    href: "https://www.facebook.com/p/Footprints-2-Africa-61573135224358/",
                   },
                   {
                     name: "Instagram",
                     Icon: Instagram,
-                    href: "https://www.instagram.com/footprints2africa",
+                    href: "https://www.instagram.com/footprints2africa/?hl=en",
                   },
                 ].map(({ name, Icon, href }) => (
                   <li key={name}>

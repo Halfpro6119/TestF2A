@@ -9,7 +9,12 @@ const fraunces = Fraunces({
   variable: "--font-display",
 });
 
+const SITE_URL = "https://footprints2africa.org.uk";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  applicationName: "Footprints 2 Africa",
+  category: "charity",
   title: {
     default: "Footprints 2 Africa - Restoring Dignity, Delivering Hope",
     template: "%s | Footprints 2 Africa",
@@ -28,14 +33,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://footprints2africa.org.uk",
+    url: SITE_URL,
     siteName: "Footprints 2 Africa",
     title: "Footprints 2 Africa - Restoring Dignity, Delivering Hope",
     description:
       "Connecting surplus medical supplies in the UK with people who urgently need them across Africa.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/images/logo-hero.png",
         width: 1200,
         height: 630,
         alt: "Footprints 2 Africa - Restoring Dignity",
@@ -47,7 +52,7 @@ export const metadata: Metadata = {
     title: "Footprints 2 Africa - Restoring Dignity, Delivering Hope",
     description:
       "Connecting surplus medical supplies in the UK with people who urgently need them across Africa.",
-    images: ["/og-image.png"],
+    images: ["/images/logo-hero.png"],
   },
   robots: {
     index: true,
@@ -56,6 +61,10 @@ export const metadata: Metadata = {
   icons: {
     icon: "/images/logo-hero.png",
     apple: "/images/logo-hero.png",
+  },
+  themeColor: "#2A307C",
+  alternates: {
+    canonical: "/",
   },
 };
 
@@ -75,13 +84,12 @@ export default function RootLayout({
               "@type": "Organization",
               name: "Footprints 2 Africa",
               url: "https://footprints2africa.org.uk",
-              logo: "https://footprints2africa.org.uk/logo.png",
+              logo: "https://footprints2africa.org.uk/images/logo-hero.png",
               description:
                 "UK registered charity restoring dignity to ostomates across Africa",
               sameAs: [
-                "https://www.facebook.com/footprints2africa",
-                "https://www.twitter.com/footprints2africa",
-                "https://www.instagram.com/footprints2africa",
+                "https://www.facebook.com/p/Footprints-2-Africa-61573135224358/",
+                "https://www.instagram.com/footprints2africa/?hl=en",
               ],
               contactPoint: {
                 "@type": "ContactPoint",

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Newspaper } from "lucide-react";
@@ -9,6 +10,27 @@ import { PageHero } from "@/components/page-hero";
 import { ScrollRevealSection } from "@/components/scroll-reveal-section";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Latest News",
+  description:
+    "Stay up to date with the latest updates, announcements, and stories from Footprints 2 Africa. Read about our mission, impact, and how we're restoring dignity to ostomates across Africa.",
+  openGraph: {
+    title: "Latest News | Footprints 2 Africa",
+    description:
+      "Stay up to date with the latest updates, announcements, and stories from Footprints 2 Africa.",
+    url: "/news",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Latest News | Footprints 2 Africa",
+    description:
+      "Stay up to date with the latest updates, announcements, and stories from Footprints 2 Africa.",
+  },
+  alternates: {
+    canonical: "/news",
+  },
+};
 
 export default async function NewsPage() {
   const articles = await getArticles();

@@ -23,7 +23,7 @@ export function ImpactVideoCard({ video }: ImpactVideoCardProps) {
   return (
     <Link href={`/impact/video/${video.slug}`} className="block h-full group">
       <Card className="overflow-hidden transition-all duration-300 cursor-pointer border-2 hover:shadow-lg hover:border-brand-blue/30 border-gray-200 h-full flex flex-col hover:scale-[1.02]">
-        <div className="relative w-full aspect-video bg-gray-200 overflow-hidden">
+        <div className="relative w-full aspect-video bg-brand-grey overflow-hidden">
           <video
             src={video.video_url}
             preload="metadata"

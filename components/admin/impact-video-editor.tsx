@@ -192,7 +192,7 @@ export function ImpactVideoEditor({
                     <button
                       type="button"
                       onClick={() => setVideoUrl("")}
-                      className="absolute top-2 right-2 p-1 bg-red-600 text-white rounded-full hover:bg-red-700"
+                      className="absolute top-2 right-2 p-1 bg-brand-red text-white rounded-full hover:bg-brand-red-hover"
                       aria-label="Remove video"
                     >
                       <X className="w-4 h-4" />
@@ -234,7 +234,7 @@ export function ImpactVideoEditor({
           </div>
 
           {error && (
-            <p className="text-sm text-red-600" role="alert">
+            <p className="text-sm text-brand-red" role="alert">
               {error}
             </p>
           )}

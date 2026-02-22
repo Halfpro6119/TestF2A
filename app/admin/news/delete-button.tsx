@@ -41,7 +41,7 @@ export function DeleteArticleButton({ articleId, articleTitle }: DeleteArticleBu
   return (
     <AlertDialog open={open} onOpenChange={setOpen}>
       <AlertDialogTrigger asChild>
-        <Button variant="outline" size="sm" className="text-red-600 border-red-200 hover:bg-red-50">
+        <Button variant="outline" size="sm" className="text-brand-red border-brand-red/30 hover:bg-brand-red/10">
           <Trash2 className="w-4 h-4" />
         </Button>
       </AlertDialogTrigger>
@@ -56,7 +56,7 @@ export function DeleteArticleButton({ articleId, articleTitle }: DeleteArticleBu
           <AlertDialogCancel>Cancel</AlertDialogCancel>
           <Button
             onClick={handleDelete}
-            className="bg-red-600 hover:bg-red-700"
+            className="bg-brand-red hover:bg-brand-red-hover"
             disabled={loading}
           >
             {loading ? "Deleting..." : "Delete"}

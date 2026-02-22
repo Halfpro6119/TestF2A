@@ -25,6 +25,8 @@ function getReadingTime(content: string): number {
   return Math.max(1, Math.ceil(words / 200));
 }
 
+const SITE_URL = "https://footprints2africa.org.uk";
+
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
@@ -33,9 +35,37 @@ export async function generateMetadata({
   if (!article) {
     return { title: "Article Not Found" };
   }
+  const url = `${SITE_URL}/impact/${slug}`;
+  const image = article.image_url ?? `${SITE_URL}/images/logo-hero.png`;
   return {
     title: article.title,
     description: article.excerpt,
+    alternates: {
+      canonical: `/impact/${slug}`,
+    },
+    openGraph: {
+      type: "article",
+      title: article.title,
+      description: article.excerpt,
+      url,
+      publishedTime: article.published_at,
+      modifiedTime: article.updated_at,
+      siteName: "Footprints 2 Africa",
+      images: [
+        {
+          url: image,
+          width: 1200,
+          height: 630,
+          alt: article.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      description: article.excerpt,
+      images: [image],
+    },
   };
 }
 
@@ -67,8 +97,39 @@ export default async function ImpactArticlePage({ params }: PageProps) {
 
   const readingTime = getReadingTime(article.content);
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.excerpt,
+    image: article.image_url ?? `${SITE_URL}/images/logo-hero.png`,
+    datePublished: article.published_at,
+    dateModified: article.updated_at,
+    author: {
+      "@type": "Organization",
+      name: "Footprints 2 Africa",
+      url: SITE_URL,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Footprints 2 Africa",
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/images/logo-hero.png`,
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/impact/${slug}`,
+    },
+  };
+
   return (
     <main id="main">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <article className="pt-28 pb-16 sm:pt-32 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-3xl mx-auto">
           <Link

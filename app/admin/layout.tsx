@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Newspaper, ArrowLeft, Heart } from "lucide-react";
 import { LogoutButton } from "@/components/admin/logout-button";
+
+export const metadata: Metadata = {
+  title: "Admin",
+  robots: { index: false, follow: false },
+};
 
 export default function AdminLayout({
   children,

@@ -72,7 +72,7 @@ export function ImpactLikeButton({
       className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2 motion-reduce:transition-none ${
         liked
           ? "bg-brand-red/10 text-brand-red hover:bg-brand-red/20"
-          : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+          : "bg-brand-grey text-gray-600 hover:bg-brand-grey/80"
       } ${justLiked ? "scale-110" : ""}`}
       aria-pressed={liked}
       aria-label={liked ? "Unlike this article" : "Like this article"}

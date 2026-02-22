@@ -47,7 +47,7 @@ export function DeleteImpactVideoButton({
         <Button
           variant="outline"
           size="sm"
-          className="text-red-600 border-red-200 hover:bg-red-50"
+          className="text-brand-red border-brand-red/30 hover:bg-brand-red/10"
         >
           <Trash2 className="w-4 h-4" />
         </Button>
@@ -64,7 +64,7 @@ export function DeleteImpactVideoButton({
           <AlertDialogCancel>Cancel</AlertDialogCancel>
           <Button
             onClick={handleDelete}
-            className="bg-red-600 hover:bg-red-700"
+            className="bg-brand-red hover:bg-brand-red-hover"
             disabled={loading}
           >
             {loading ? "Deleting..." : "Delete"}

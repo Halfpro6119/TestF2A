@@ -31,7 +31,7 @@ export function StatsRevealGrid({ stats, className = "" }: StatsRevealGridProps)
         return (
           <div
             key={idx}
-            className={`text-center p-6 rounded-xl border border-gray-200 bg-gray-50/50 hover:bg-brand-blue/5 hover:border-brand-blue/30 transition-all duration-500 ease-out ${
+            className={`text-center p-6 rounded-xl border border-gray-200 bg-brand-grey/50 hover:bg-brand-blue/5 hover:border-brand-blue/30 transition-all duration-500 ease-out ${
               revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
             style={

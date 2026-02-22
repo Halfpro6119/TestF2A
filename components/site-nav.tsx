@@ -15,7 +15,7 @@ const navItems = [
   { label: "Volunteer", href: "/get-involved/volunteer", anchor: null },
   { label: "Partners", href: "/get-involved/partners", anchor: null },
   { label: "Donate", href: "/", anchor: "donate" },
-  { label: "Contact", href: "/", anchor: "contact" },
+  { label: "Contact", href: "/contact", anchor: null },
 ] as const;
 
 function getNavHref(item: (typeof navItems)[number]): string {
