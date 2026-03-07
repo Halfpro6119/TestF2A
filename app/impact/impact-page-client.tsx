@@ -56,7 +56,7 @@ export function ImpactPageClient({
                 {articles.length > 0 && (
                   <div>
                     <h2 className="heading-display text-2xl font-bold text-gray-900 mb-6">
-                      Impact Stories
+                      Patient Stories
                     </h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                       {articles.map((article) => (
@@ -73,7 +73,7 @@ export function ImpactPageClient({
                     <FileText className="w-16 h-16 text-gray-400 mx-auto mb-4" />
                     <p className="text-gray-600 mb-2">No impact content yet</p>
                     <p className="text-sm text-gray-500">
-                      Check back soon for video testimonials and impact stories.
+                      Check back soon for video testimonials and patient stories.
                     </p>
                   </div>
                 )}
@@ -108,7 +108,7 @@ export function ImpactPageClient({
               ) : (
                 <div className="text-center py-16 bg-brand-grey rounded-xl">
                   <FileText className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-600">No impact stories yet</p>
+                  <p className="text-gray-600">No patient stories yet</p>
                 </div>
               )}
             </TabsContent>

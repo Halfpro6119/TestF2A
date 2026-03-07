@@ -64,7 +64,7 @@ export default async function NewsPage() {
                   <Link href="/">Return home</Link>
                 </Button>
                 <Button asChild variant="brand">
-                  <Link href="/impact">Explore impact stories</Link>
+                  <Link href="/impact">Explore patient stories</Link>
                 </Button>
               </div>
             </div>

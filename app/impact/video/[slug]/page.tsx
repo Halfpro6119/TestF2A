@@ -183,7 +183,7 @@ export default async function ImpactVideoPage({ params }: PageProps) {
                   className="inline-flex items-center gap-2 text-brand-navy hover:text-brand-navy-light font-medium text-sm transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2 rounded"
                 >
                   <ArrowLeft className="w-4 h-4" />
-                  Back to all impact stories
+                  Back to all patient stories
                 </Link>
               </div>
             </section>
