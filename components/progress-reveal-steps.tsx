@@ -81,8 +81,8 @@ export function ProgressRevealSteps({
                 transform: stepRevealed ? "translateY(0)" : "translateY(1rem)",
               }}
             >
-              <div className="w-14 h-14 bg-gradient-to-br from-brand-navy to-brand-blue text-white rounded-full flex items-center justify-center mx-auto mb-4 transition-shadow duration-300 hover:shadow-md">
-                <StepIcon className="w-6 h-6" />
+              <div className="w-16 h-16 bg-gradient-to-br from-brand-navy to-brand-blue text-white rounded-full flex items-center justify-center mx-auto mb-4 transition-shadow duration-300 hover:shadow-md">
+                <StepIcon className="w-8 h-8" />
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2 leading-tight">
                 {step.title}

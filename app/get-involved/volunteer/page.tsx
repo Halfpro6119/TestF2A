@@ -9,9 +9,11 @@ import {
   MapPin,
   Facebook,
   Instagram,
+  Linkedin,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DonateSection } from "@/components/donate-section";
+import { FooterImages } from "@/components/footer-images";
 import { PageHero } from "@/components/page-hero";
 import { VolunteerEmployerBenefits } from "@/components/volunteer-employer-benefits";
 
@@ -232,7 +234,7 @@ export default function VolunteerPage() {
                 </li>
                 <li className="flex items-center gap-2 text-gray-400">
                   <MapPin className="w-4 h-4" />
-                  UK-based · Gloucester
+                  UK based · Gloucestershire
                 </li>
               </ul>
             </div>
@@ -252,6 +254,11 @@ export default function VolunteerPage() {
                     Icon: Instagram,
                     href: "https://www.instagram.com/footprints2africa/?hl=en",
                   },
+                  {
+                    name: "LinkedIn",
+                    Icon: Linkedin,
+                    href: "https://linkedin.com/company/footprints2africa",
+                  },
                 ].map(({ name, Icon, href }) => (
                   <li key={name}>
                     <a
@@ -269,6 +276,7 @@ export default function VolunteerPage() {
               </ul>
             </div>
           </div>
+          <FooterImages />
           <div className="border-t border-white/15 pt-8 text-gray-400 text-sm">
             <p>
               Footprints 2 Africa is a registered charity in England and Wales,

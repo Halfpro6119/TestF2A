@@ -9,7 +9,7 @@ const LOGO_STRIPS = [
   { src: "/F2APartnerLogos/LogoStrip3.jpg", alt: "Footprints 2 Africa partner logos" },
 ];
 
-const STRIP_WIDTH_PX = 620;
+const STRIP_WIDTH_PX = 900;
 const SPEED_PX_PER_SEC = 80;
 
 export function PartnerLogoMarquee() {
@@ -81,7 +81,7 @@ export function PartnerLogoMarquee() {
     <div className="overflow-hidden" aria-hidden>
       <div
         ref={trackRef}
-        className="flex items-center gap-0 py-4 will-change-transform [contain:layout] [backface-visibility:hidden]"
+        className="flex items-center gap-0 py-6 will-change-transform [contain:layout] [backface-visibility:hidden]"
         style={{ width: "max-content" }}
       >
         {[...LOGO_STRIPS, ...LOGO_STRIPS, ...LOGO_STRIPS].map((strip, i) => (

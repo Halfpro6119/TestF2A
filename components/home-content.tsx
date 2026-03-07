@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import { HeroIllustration } from "@/components/hero-illustration";
 import { SiteNav } from "@/components/site-nav";
+import { FooterImages } from "@/components/footer-images";
 import { useState, useEffect, useRef } from "react";
 import {
   Heart,
@@ -25,6 +26,7 @@ import {
   Ship,
   Facebook,
   Instagram,
+  Linkedin,
   FileText,
 } from "lucide-react";
 import type { ImpactArticle, ImpactVideo } from "@/lib/impact";
@@ -159,7 +161,7 @@ export function HomeContent({
 
       <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="widget-container-gradient p-4 sm:p-6 md:p-8">
+          <div className="widget-container-gradient !overflow-visible p-4 sm:p-6 md:p-8">
             <p className="legend-text text-center mb-4 sm:mb-6">Live impact</p>
             <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
               {[
@@ -172,7 +174,7 @@ export function HomeContent({
                 return (
                   <div
                     key={idx}
-                    className={`p-4 sm:p-6 text-center rounded-lg border transition-colors transition-shadow duration-300 cursor-default group ${
+                    className={`p-4 sm:p-6 text-center rounded-lg border transition-colors transition-shadow duration-300 cursor-default group overflow-visible ${
                       metric.featured
                         ? "border-brand-green/40 bg-brand-green-light/30 hover:border-brand-green/40 hover:bg-brand-green-light/40"
                         : "border-gray-200 bg-white/50 hover:border-brand-blue/30 hover:bg-brand-blue/5"
@@ -181,21 +183,23 @@ export function HomeContent({
                     <div className="flex justify-center mb-3">
                       <IconComponent className="w-10 h-10 text-brand-navy" />
                     </div>
-                    <p className="text-2xl sm:text-3xl lg:text-5xl font-bold bg-gradient-to-r from-brand-navy to-brand-blue bg-clip-text text-transparent mb-2 break-words">
-                      {countersStarted ? (
-                        <>
-                          <CountUp
-                            isCounting={countersStarted}
-                            end={metric.value}
-                            duration={2.5}
-                            decimalPlaces={metric.suffix === "kg" ? 1 : 0}
-                          />
-                          {metric.suffix}
-                        </>
-                      ) : (
-                        `0${metric.suffix}`
-                      )}
-                    </p>
+                    <div className="overflow-visible mb-2 pb-1 sm:pb-2 lg:pb-3">
+                      <p className="text-2xl sm:text-3xl lg:text-5xl font-bold bg-gradient-to-r from-brand-navy to-brand-blue bg-clip-text text-transparent whitespace-nowrap overflow-visible leading-[1.35]">
+                        {countersStarted ? (
+                          <>
+                            <CountUp
+                              isCounting={countersStarted}
+                              end={metric.value}
+                              duration={2.5}
+                              decimalPlaces={metric.suffix === "kg" ? 1 : 0}
+                            />
+                            {metric.suffix}
+                          </>
+                        ) : (
+                          `0${metric.suffix}`
+                        )}
+                      </p>
+                    </div>
                     <p className="legend-text-sm">
                       {metric.label}
                     </p>
@@ -354,7 +358,7 @@ export function HomeContent({
 
             <div className="mt-8 sm:mt-12 pt-8 sm:pt-10 border-t border-gray-200">
               <h3 className="heading-display text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 text-center leading-tight">
-                Impact Stories
+                Patient Stories
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-6 sm:mb-8">
                 {impactArticles.slice(0, 4).map((article) => (
@@ -399,7 +403,7 @@ export function HomeContent({
               <div className="flex justify-center">
                 <Button asChild variant="brand">
                   <Link href="/impact">
-                    View all impact stories <ArrowRight className="ml-2 w-4 h-4" />
+                    View all patient stories <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
                 </Button>
               </div>
@@ -827,6 +831,7 @@ export function HomeContent({
                 {[
                   { name: "Facebook", Icon: Facebook, href: "https://www.facebook.com/p/Footprints-2-Africa-61573135224358/" },
                   { name: "Instagram", Icon: Instagram, href: "https://www.instagram.com/footprints2africa/?hl=en" },
+                  { name: "LinkedIn", Icon: Linkedin, href: "https://linkedin.com/company/footprints2africa" },
                 ].map(({ name, Icon, href }) => (
                   <li key={name}>
                     <a
@@ -844,6 +849,8 @@ export function HomeContent({
               </ul>
             </div>
           </div>
+
+          <FooterImages />
 
           <div className="border-t border-white/15 pt-8 text-gray-400 text-sm space-y-2">
             <p>Footprints 2 Africa is a registered charity in England and Wales, no. 1214173</p>

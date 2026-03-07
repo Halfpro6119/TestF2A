@@ -9,10 +9,12 @@ import {
   MapPin,
   Facebook,
   Instagram,
+  Linkedin,
   Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DonateSection } from "@/components/donate-section";
+import { FooterImages } from "@/components/footer-images";
 import { PartnerLogoMarquee } from "@/components/partner-logo-marquee";
 import { PageHero } from "@/components/page-hero";
 import { PartnersHowInvolved } from "@/components/partners-how-involved";
@@ -76,8 +78,8 @@ export default function PartnersPage() {
         <div className="max-w-4xl mx-auto">
           <div className="widget-container bg-white p-8 md:p-10 border border-gray-200">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-brand-blue/20 rounded-lg flex items-center justify-center">
-                <Handshake className="w-6 h-6 text-brand-navy" />
+              <div className="w-16 h-16 bg-brand-blue/20 rounded-lg flex items-center justify-center">
+                <Handshake className="w-8 h-8 text-brand-navy" />
               </div>
               <div>
                 <h2
@@ -152,8 +154,8 @@ export default function PartnersPage() {
                 key={idx}
                 className="text-center p-6 rounded-xl border border-gray-200 bg-brand-grey/50 hover:bg-brand-blue/5 hover:border-brand-blue/30 transition-all duration-300"
               >
-                <div className="w-12 h-12 bg-brand-blue/20 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Icon className="w-6 h-6 text-brand-navy" />
+                <div className="w-16 h-16 bg-brand-blue/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <Icon className="w-8 h-8 text-brand-navy" />
                 </div>
                 <h3 className="heading-display font-bold text-gray-900 mb-2 leading-tight">
                   {title}
@@ -197,8 +199,8 @@ export default function PartnersPage() {
           <div className="widget-container rounded-xl overflow-hidden border border-gray-200">
             <div className="p-8 md:p-10 bg-brand-navy">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-                  <Mail className="w-6 h-6 text-white" />
+                <div className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center">
+                  <Mail className="w-8 h-8 text-white" />
                 </div>
                 <h2
                   id="interested-heading"
@@ -273,7 +275,7 @@ export default function PartnersPage() {
                 </li>
                 <li className="flex items-center gap-2 text-gray-400">
                   <MapPin className="w-4 h-4" />
-                  UK-based · Gloucester
+                  UK based · Gloucestershire
                 </li>
               </ul>
             </div>
@@ -293,6 +295,11 @@ export default function PartnersPage() {
                     Icon: Instagram,
                     href: "https://www.instagram.com/footprints2africa/?hl=en",
                   },
+                  {
+                    name: "LinkedIn",
+                    Icon: Linkedin,
+                    href: "https://linkedin.com/company/footprints2africa",
+                  },
                 ].map(({ name, Icon, href }) => (
                   <li key={name}>
                     <a
@@ -310,6 +317,7 @@ export default function PartnersPage() {
               </ul>
             </div>
           </div>
+          <FooterImages />
           <div className="border-t border-white/15 pt-8 text-gray-400 text-sm">
             <p>
               Footprints 2 Africa is a registered charity in England and Wales,
